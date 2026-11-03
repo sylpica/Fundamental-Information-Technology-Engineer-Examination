@@ -25,6 +25,8 @@ const REPORT_DIR = join(ROOT, 'docs', 'generated');
 const LETTERS = ['ア', 'イ', 'ウ', 'エ', 'オ', 'カ', 'キ', 'ク', 'ケ', 'コ'];
 const TODAY = new Date().toISOString().slice(0, 10);
 const STRICT = process.argv.includes('--strict');
+// --check：検証だけを行い、public/data・docs/generated へは書き出さない（並行作業中の検証用）
+const CHECK_ONLY = process.argv.includes('--check');
 
 const errors: string[] = [];
 const warnings: string[] = [];
@@ -602,6 +604,13 @@ for (const M of syllabus.majors) for (const m of M.middles) {
 for (const b of bScope) coverage.subjectB.push({ id: b.id, name: b.name, questions: published.filter((q) => q.topicIds.includes(b.id)).length });
 
 // ===== 出力 =====
+if (CHECK_ONLY) {
+  console.log(`検証のみ（--check）: 問題 ${questions.length} / 公開 ${published.length}  警告 ${warnings.length}  エラー ${errors.length}`);
+  for (const w of warnings.slice(0, 50)) console.log('  警告 ' + w);
+  for (const e of errors.slice(0, 200)) console.error('  ' + e);
+  process.exit(errors.length ? 1 : 0);
+}
+
 
 if (existsSync(OUT)) rmSync(OUT, { recursive: true, force: true });
 mkdirSync(OUT, { recursive: true });
