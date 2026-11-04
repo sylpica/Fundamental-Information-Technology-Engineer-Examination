@@ -6,8 +6,8 @@
    "no": "1",
    "name": "基礎理論",
    "field": "テクノロジ系",
-   "questions": 141,
-   "verified": 141,
+   "questions": 142,
+   "verified": 142,
    "leafTotal": 34,
    "leafCovered": 34,
    "uncovered": []
@@ -26,8 +26,8 @@
    "no": "3",
    "name": "コンピュータ構成要素",
    "field": "テクノロジ系",
-   "questions": 80,
-   "verified": 80,
+   "questions": 88,
+   "verified": 88,
    "leafTotal": 29,
    "leafCovered": 29,
    "uncovered": []
@@ -36,8 +36,8 @@
    "no": "4",
    "name": "システム構成要素",
    "field": "テクノロジ系",
-   "questions": 70,
-   "verified": 70,
+   "questions": 63,
+   "verified": 63,
    "leafTotal": 12,
    "leafCovered": 12,
    "uncovered": []
