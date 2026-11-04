@@ -1,5 +1,5 @@
 {
- "builtAt": "2026-11-04T07:20:36.276Z",
+ "builtAt": "2026-11-04T07:28:32.549Z",
  "totalAuthored": 2002,
  "published": 2002,
  "bySubject": {
@@ -12,8 +12,8 @@
   "original": 1898
  },
  "byDepth": {
-  "quick": 1738,
-  "deep": 224
+  "quick": 1758,
+  "deep": 244
  },
  "machineVerified": 609,
  "withSimulator": 203,

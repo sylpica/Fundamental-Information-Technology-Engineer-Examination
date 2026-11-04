@@ -6,8 +6,8 @@
    "no": "1",
    "name": "基礎理論",
    "field": "テクノロジ系",
-   "questions": 140,
-   "verified": 140,
+   "questions": 141,
+   "verified": 141,
    "leafTotal": 34,
    "leafCovered": 34,
    "uncovered": []
@@ -36,8 +36,8 @@
    "no": "4",
    "name": "システム構成要素",
    "field": "テクノロジ系",
-   "questions": 72,
-   "verified": 72,
+   "questions": 70,
+   "verified": 70,
    "leafTotal": 12,
    "leafCovered": 12,
    "uncovered": []
@@ -46,8 +46,8 @@
    "no": "5",
    "name": "ソフトウェア",
    "field": "テクノロジ系",
-   "questions": 51,
-   "verified": 51,
+   "questions": 52,
+   "verified": 52,
    "leafTotal": 30,
    "leafCovered": 30,
    "uncovered": []
@@ -146,8 +146,8 @@
    "no": "15",
    "name": "サービスマネジメント",
    "field": "マネジメント系",
-   "questions": 81,
-   "verified": 81,
+   "questions": 82,
+   "verified": 82,
    "leafTotal": 39,
    "leafCovered": 39,
    "uncovered": []
