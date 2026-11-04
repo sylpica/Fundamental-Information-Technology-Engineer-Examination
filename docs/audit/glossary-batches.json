@@ -1,0 +1,144 @@
+[
+  {
+    "id": "G01",
+    "count": 463,
+    "bytes": 213037,
+    "files": [
+      "content/glossary/01-basic-theory.yaml",
+      "content/glossary/02-algorithm.yaml",
+      "content/glossary/03-computer.yaml"
+    ]
+  },
+  {
+    "id": "G02",
+    "count": 357,
+    "bytes": 172988,
+    "files": [
+      "content/glossary/04-system.yaml",
+      "content/glossary/05-software.yaml",
+      "content/glossary/07-ui-media.yaml"
+    ]
+  },
+  {
+    "id": "G03",
+    "count": 289,
+    "bytes": 135949,
+    "files": [
+      "content/glossary/09-database.yaml",
+      "content/glossary/10-network.yaml"
+    ]
+  },
+  {
+    "id": "G04",
+    "count": 393,
+    "bytes": 182742,
+    "files": [
+      "content/glossary/11-security.yaml",
+      "content/glossary/12-devtech-2.yaml",
+      "content/glossary/12-devtech.yaml"
+    ]
+  },
+  {
+    "id": "G05",
+    "count": 433,
+    "bytes": 204683,
+    "files": [
+      "content/glossary/13-devmgmt.yaml",
+      "content/glossary/14-pm.yaml",
+      "content/glossary/15-sm.yaml",
+      "content/glossary/16-audit.yaml",
+      "content/glossary/17-system-strategy.yaml",
+      "content/glossary/18-system-planning.yaml"
+    ]
+  },
+  {
+    "id": "G06",
+    "count": 473,
+    "bytes": 219991,
+    "files": [
+      "content/glossary/19-business-strategy.yaml",
+      "content/glossary/20-tech-strategy.yaml",
+      "content/glossary/21-business-industry.yaml",
+      "content/glossary/22-corporate.yaml",
+      "content/glossary/23-law.yaml",
+      "content/glossary/b-alg-applied.yaml",
+      "content/glossary/b-alg-core.yaml",
+      "content/glossary/b-sec.yaml",
+      "content/glossary/gaps-13-19.yaml",
+      "content/glossary/gaps-2.yaml"
+    ]
+  },
+  {
+    "id": "G07",
+    "count": 304,
+    "bytes": 157337,
+    "files": [
+      "content/glossary/h2-a01a.yaml",
+      "content/glossary/h2-a01b.yaml",
+      "content/glossary/h2-a02b.yaml",
+      "content/glossary/h2-a02c.yaml",
+      "content/glossary/h2-a03a.yaml",
+      "content/glossary/h2-a03b.yaml",
+      "content/glossary/h2-a04.yaml",
+      "content/glossary/h2-a04b.yaml",
+      "content/glossary/h2-a04c.yaml",
+      "content/glossary/h2-a04d.yaml",
+      "content/glossary/h2-a06.yaml",
+      "content/glossary/h2-a06b.yaml",
+      "content/glossary/h2-a07.yaml",
+      "content/glossary/h2-a08.yaml",
+      "content/glossary/h2-a09a.yaml",
+      "content/glossary/h2-a09b.yaml",
+      "content/glossary/h2-a09c.yaml",
+      "content/glossary/h2-a10a.yaml",
+      "content/glossary/h2-a10b.yaml",
+      "content/glossary/h2-a10c.yaml",
+      "content/glossary/h2-a11a.yaml",
+      "content/glossary/h2-a11b.yaml",
+      "content/glossary/h2-a11c.yaml",
+      "content/glossary/h2-a12a.yaml",
+      "content/glossary/h2-a12c.yaml",
+      "content/glossary/h2-a13.yaml",
+      "content/glossary/h2-a13b.yaml",
+      "content/glossary/h2-a14.yaml",
+      "content/glossary/h2-a14b.yaml",
+      "content/glossary/h2-a14c.yaml",
+      "content/glossary/h2-a15.yaml",
+      "content/glossary/h2-a15b.yaml",
+      "content/glossary/h2-a15c.yaml",
+      "content/glossary/h2-a16b.yaml",
+      "content/glossary/h2-a16c.yaml",
+      "content/glossary/h2-a17.yaml",
+      "content/glossary/h2-a17b.yaml",
+      "content/glossary/h2-a17c.yaml",
+      "content/glossary/h2-a18.yaml",
+      "content/glossary/h2-a18b.yaml",
+      "content/glossary/h2-a19b.yaml",
+      "content/glossary/h2-a19c.yaml",
+      "content/glossary/h2-a20.yaml",
+      "content/glossary/h2-a21.yaml",
+      "content/glossary/h2-a21b.yaml",
+      "content/glossary/h2-a22.yaml",
+      "content/glossary/h2-a22b.yaml",
+      "content/glossary/h2-a22c.yaml",
+      "content/glossary/h2-a22d.yaml",
+      "content/glossary/h2-a23.yaml",
+      "content/glossary/h2-a23b.yaml",
+      "content/glossary/h2-a23c.yaml",
+      "content/glossary/h2-b10.yaml",
+      "content/glossary/h2-balg1.yaml",
+      "content/glossary/h2-balg1c.yaml",
+      "content/glossary/h2-balg1d.yaml",
+      "content/glossary/h2-balg2.yaml",
+      "content/glossary/h2-balg2d.yaml",
+      "content/glossary/h2-balg3.yaml",
+      "content/glossary/h2-balg3c.yaml",
+      "content/glossary/h2-bsec.yaml",
+      "content/glossary/h2-bsec2.yaml",
+      "content/glossary/h2-bsec3.yaml",
+      "content/glossary/h2-bsec4.yaml",
+      "content/glossary/h2-bsec5.yaml",
+      "content/glossary/h2-w3.yaml"
+    ]
+  }
+]
