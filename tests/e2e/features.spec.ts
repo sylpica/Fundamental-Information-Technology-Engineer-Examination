@@ -420,3 +420,39 @@ test.describe('模擬試験 科目B（短縮版）', () => {
     await expect(page.getByText(`${correct}/${total}問正解`)).toBeVisible();
   });
 });
+
+test.describe('高難度特訓', () => {
+  test('応用・高難度の問題だけが出題され、解答・解説まで進める', async ({ page }) => {
+    await open(page, '/practice');
+    await page.getByRole('button', { name: /応用・高難度だけで始める/ }).click();
+    for (let i = 0; i < 3; i++) {
+      await expect(page.locator('.q-head .tag').filter({ hasText: /^(基礎|標準|応用|高難度)$/ }).first()).toHaveText(/^(応用|高難度)$/, { timeout: 30_000 });
+      await answerCurrent(page);
+      const next = page.getByRole('button', { name: /次の問題/ });
+      if (!(await next.isVisible())) break;
+      await next.click();
+    }
+  });
+
+  test('分野を絞ると、その分野の問題だけが出題される（分野番号の表記揺れの回帰）', async ({ page }) => {
+    await open(page, '/practice');
+    await page.getByText(/^分野：/).click();
+    await page.getByRole('group', { name: '分野' }).getByRole('button', { name: '1. 基礎理論' }).click();
+    // 分野の一覧に '01' のような番号だけの分野が出ない
+    await expect(page.getByRole('group', { name: '分野' }).getByRole('button', { name: /^\d+\. \d+$/ })).toHaveCount(0);
+    await page.getByRole('button', { name: /応用・高難度だけで始める/ }).click();
+    await expect(page.locator('.q-head')).toContainText('基礎理論', { timeout: 30_000 });
+  });
+});
+
+test.describe('辞典の分野とページ分割', () => {
+  test('分野はシラバスの中分類名で、番号だけの分野がない。一覧は100語ずつ表示する', async ({ page }) => {
+    await open(page, '/dict');
+    const chips = page.locator('.chips .chip');
+    await expect(chips.first()).toBeVisible();
+    for (const t of await chips.allInnerTexts()) expect(t).not.toMatch(/^\d+$/);
+    await expect(page.locator('ul.list > li')).toHaveCount(100);
+    await page.getByRole('button', { name: /さらに表示/ }).click();
+    await expect(page.locator('ul.list > li')).toHaveCount(200);
+  });
+});

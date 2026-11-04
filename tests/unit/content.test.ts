@@ -69,6 +69,12 @@ describe.skipIf(!hasData)('教材データ', () => {
     for (const q of questions) for (const t of q.relatedConcepts) expect(termIds.has(t), `${q.id}: ${t}`).toBe(true);
   });
 
+  it('用語の分野はシラバスの中分類名のいずれか', () => {
+    const syllabus = read<{ majors: { middles: { name: string }[] }[] }>(manifest.files.find((f) => f.kind === 'syllabus')!.path);
+    const names = new Set(syllabus.majors.flatMap((M) => M.middles.map((m) => m.name)));
+    for (const t of glossary) expect(names.has(t.category), `${t.term}: ${t.category}`).toBe(true);
+  });
+
   it('略語の用語には正式名称・日本語訳・単語ごとの意味がある', () => {
     for (const t of glossary) {
       if (t.fullName) {

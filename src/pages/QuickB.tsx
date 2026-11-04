@@ -24,7 +24,6 @@ export default function QuickB() {
   return (
     <div className="stack">
       <h1 tabIndex={-1}>科目B 短時間学習</h1>
-      <p className="muted small">1問30秒〜1分で解ける短い問題です。長いプログラムの読解は <Link to="/deep">計算・プログラム読解</Link> で練習できます。</p>
       <div className="card">
         <div className="field">
           <span className="label">テーマ</span>
@@ -52,6 +51,7 @@ export default function QuickB() {
         <p className="small muted">対象：{pool.length}問</p>
         <button className="btn primary lg block" disabled={!pool.length} onClick={() => startSession('quickB', '科目B 短時間学習', pick(pool, 'standard', count))}>開始する</button>
       </div>
+      <p className="muted small">1問30秒〜1分で解ける短い問題です。長いプログラムの読解は <Link to="/deep">計算・プログラム読解</Link> で練習できます。</p>
     </div>
   );
 }

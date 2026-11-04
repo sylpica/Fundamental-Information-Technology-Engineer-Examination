@@ -3,7 +3,7 @@ import { useDeferredValue, useMemo, useState } from 'react';
 import { useApp } from '../app/context';
 import { Link } from '../app/router';
 import { matchesQuery } from '../lib/text';
-import { stripMarkup } from '../components/Explanation';
+import { leadSentence } from '../components/Explanation';
 
 export default function Search() {
   const { content, categoryName } = useApp();
@@ -36,7 +36,7 @@ export default function Search() {
               <h2>用語辞典</h2>
               <ul className="list">
                 {results.terms.slice(0, 30).map((t) => (
-                  <li key={t.id}><Link className="item" to={`/term/${t.id}`}><span className="grow"><strong>{t.term}</strong> <span className="small muted">{t.fullName ?? ''}</span><br /><span className="small">{t.simple.slice(0, 70)}</span></span></Link></li>
+                  <li key={t.id}><Link className="item" to={`/term/${t.id}`}><span className="grow"><strong>{t.term}</strong> <span className="small muted">{t.fullName ?? ''}</span><br /><span className="small">{t.simple}</span></span></Link></li>
                 ))}
               </ul>
             </div>
@@ -56,7 +56,7 @@ export default function Search() {
               <h2>問題・解説</h2>
               <ul className="list">
                 {results.qs.slice(0, 100).map((x) => (
-                  <li key={x.id}><Link className="item" to={`/q/${x.id}`}><span className="grow"><span className="xsmall muted">科目{x.subject}／{categoryName(x.category)}／{x.id}</span><br /><span className="small">{stripMarkup(x.questionText).slice(0, 90)}</span></span></Link></li>
+                  <li key={x.id}><Link className="item" to={`/q/${x.id}`}><span className="grow"><span className="xsmall muted">科目{x.subject}／{categoryName(x.category)}／{x.id}</span><br /><span className="small">{leadSentence(x.questionText)}</span></span></Link></li>
                 ))}
               </ul>
               {results.qs.length > 100 && <p className="small muted">上位100件を表示しています。キーワードを追加して絞り込んでください。</p>}

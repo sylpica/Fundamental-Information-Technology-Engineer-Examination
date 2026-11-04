@@ -18,7 +18,6 @@ export default function Lessons({ id }: { id?: string }) {
     return (
       <div className="stack">
         <h1 tabIndex={-1}>初心者向けプログラミング講座</h1>
-        <p className="small muted">プログラミング経験がほとんどない方向けに、科目Bで使う IPA の擬似言語を一歩ずつ学びます。各回は短い説明・動作例・確認問題でできています。</p>
         <ol className="list card" style={{ padding: '4px 14px' }}>
           {lessons.map((l) => (
             <li key={l.id}>
@@ -30,6 +29,7 @@ export default function Lessons({ id }: { id?: string }) {
             </li>
           ))}
         </ol>
+        <p className="small muted">プログラミング経験がほとんどない方向けに、科目Bで使う IPA の擬似言語を一歩ずつ学びます。各回は短い説明・動作例・確認問題でできています。</p>
       </div>
     );
   }

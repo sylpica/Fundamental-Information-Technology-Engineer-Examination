@@ -118,7 +118,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .topbar {
   position: sticky; top: 0; z-index: 20;
   display: flex; align-items: center; gap: 12px;
-  padding: 10px 16px; padding-top: max(10px, env(safe-area-inset-top));
+  padding: 2px 8px 2px 16px; padding-top: max(2px, env(safe-area-inset-top));
   background: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
@@ -126,7 +126,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .brand { font-weight: 700; font-size: 0.98em; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 8px; }
 .brand img { width: 26px; height: 26px; }
 .topbar .spacer { flex: 1; }
-.main { flex: 1; width: 100%; max-width: calc(var(--content) + 32px); margin: 0 auto; padding: 20px 16px calc(var(--nav-h) + 32px + env(safe-area-inset-bottom)); }
+.main { flex: 1; width: 100%; max-width: calc(var(--content) + 32px); margin: 0 auto; padding: 14px 16px calc(var(--nav-h) + 32px + env(safe-area-inset-bottom)); }
 .main.wide { max-width: 1080px; }
 
 .bottom-nav {
