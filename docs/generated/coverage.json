@@ -86,8 +86,8 @@
    "no": "9",
    "name": "データベース",
    "field": "テクノロジ系",
-   "questions": 85,
-   "verified": 85,
+   "questions": 86,
+   "verified": 86,
    "leafTotal": 21,
    "leafCovered": 21,
    "uncovered": []
@@ -116,8 +116,8 @@
    "no": "12",
    "name": "システム開発技術",
    "field": "テクノロジ系",
-   "questions": 178,
-   "verified": 178,
+   "questions": 179,
+   "verified": 179,
    "leafTotal": 95,
    "leafCovered": 95,
    "uncovered": []
@@ -166,8 +166,8 @@
    "no": "17",
    "name": "システム戦略",
    "field": "ストラテジ系",
-   "questions": 63,
-   "verified": 63,
+   "questions": 62,
+   "verified": 62,
    "leafTotal": 24,
    "leafCovered": 24,
    "uncovered": []
