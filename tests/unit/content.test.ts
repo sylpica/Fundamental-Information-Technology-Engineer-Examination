@@ -41,6 +41,18 @@ describe.skipIf(!hasData)('教材データ', () => {
     }
   });
 
+  it('科目Aの分野は中分類番号の正規形（1〜23）で、主論点の中分類と一致する', () => {
+    const middles = new Set(Array.from({ length: 23 }, (_, i) => String(i + 1)));
+    const cats = new Set<string>();
+    for (const q of questions.filter((x) => x.subject === 'A')) {
+      expect(middles.has(q.category), `${q.id}: ${q.category}`).toBe(true);
+      expect(q.topicIds[0].split('-')[0], q.id).toBe(q.category);
+      cats.add(q.category);
+    }
+    expect(cats.size).toBe(23);
+    for (const q of questions.filter((x) => x.subject === 'B')) expect(['B-ALG', 'B-SEC'], q.id).toContain(q.category);
+  });
+
   it('すべての問題に出典とライセンス状態がある', () => {
     for (const q of questions) {
       expect(q.source?.kind, q.id).toBeTruthy();

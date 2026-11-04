@@ -1,0 +1,304 @@
+[
+  {
+    "id": "Q01",
+    "count": 90,
+    "bytes": 146058,
+    "files": [
+      "content/questions/A/01-basic-theory.yaml",
+      "content/questions/A/01-h2-a01a.yaml",
+      "content/questions/A/01-h2-a01b.yaml"
+    ]
+  },
+  {
+    "id": "Q02",
+    "count": 74,
+    "bytes": 134820,
+    "files": [
+      "content/questions/A/02-algorithm.yaml",
+      "content/questions/A/02-h2-a02.yaml",
+      "content/questions/A/02-h2-a02b.yaml",
+      "content/questions/A/02-h2-a02c.yaml"
+    ]
+  },
+  {
+    "id": "Q03",
+    "count": 96,
+    "bytes": 194555,
+    "files": [
+      "content/questions/A/03-computer.yaml",
+      "content/questions/A/03-h2-a03a.yaml",
+      "content/questions/A/03-h2-a03b.yaml",
+      "content/questions/A/04-h2-a04.yaml",
+      "content/questions/A/04-h2-a04b.yaml"
+    ]
+  },
+  {
+    "id": "Q04",
+    "count": 109,
+    "bytes": 193149,
+    "files": [
+      "content/questions/A/04-h2-a04c.yaml",
+      "content/questions/A/04-h2-a04d.yaml",
+      "content/questions/A/04-system.yaml",
+      "content/questions/A/05-h2-a05.yaml",
+      "content/questions/A/05-software.yaml",
+      "content/questions/A/06-h2-a06.yaml"
+    ]
+  },
+  {
+    "id": "Q05",
+    "count": 108,
+    "bytes": 185948,
+    "files": [
+      "content/questions/A/06-h2-a06b.yaml",
+      "content/questions/A/06-hardware.yaml",
+      "content/questions/A/07-h2-a07.yaml",
+      "content/questions/A/07-ui.yaml",
+      "content/questions/A/08-h2-a08.yaml",
+      "content/questions/A/08-media.yaml",
+      "content/questions/A/09-database.yaml"
+    ]
+  },
+  {
+    "id": "Q06",
+    "count": 62,
+    "bytes": 197779,
+    "files": [
+      "content/questions/A/09-h2-a09a.yaml",
+      "content/questions/A/09-h2-a09b.yaml",
+      "content/questions/A/09-h2-a09c.yaml",
+      "content/questions/A/10-h2-a10a.yaml",
+      "content/questions/A/10-h2-a10b.yaml",
+      "content/questions/A/10-h2-a10c.yaml"
+    ]
+  },
+  {
+    "id": "Q07",
+    "count": 88,
+    "bytes": 167493,
+    "files": [
+      "content/questions/A/10-network.yaml",
+      "content/questions/A/11-h2-a11a.yaml",
+      "content/questions/A/11-h2-a11b.yaml",
+      "content/questions/A/11-h2-a11c.yaml"
+    ]
+  },
+  {
+    "id": "Q08",
+    "count": 121,
+    "bytes": 171249,
+    "files": [
+      "content/questions/A/11-security.yaml",
+      "content/questions/A/12-devtech-2.yaml"
+    ]
+  },
+  {
+    "id": "Q09",
+    "count": 110,
+    "bytes": 183880,
+    "files": [
+      "content/questions/A/12-devtech.yaml",
+      "content/questions/A/12-h2-a12a.yaml"
+    ]
+  },
+  {
+    "id": "Q10",
+    "count": 84,
+    "bytes": 195953,
+    "files": [
+      "content/questions/A/12-h2-a12b.yaml",
+      "content/questions/A/12-h2-a12c.yaml",
+      "content/questions/A/13-devmgmt.yaml",
+      "content/questions/A/13-gaps.yaml",
+      "content/questions/A/13-h2-a13.yaml",
+      "content/questions/A/13-h2-a13b.yaml"
+    ]
+  },
+  {
+    "id": "Q11",
+    "count": 100,
+    "bytes": 183370,
+    "files": [
+      "content/questions/A/14-gaps.yaml",
+      "content/questions/A/14-h2-a14.yaml",
+      "content/questions/A/14-h2-a14b.yaml",
+      "content/questions/A/14-h2-a14c.yaml",
+      "content/questions/A/14-pm.yaml",
+      "content/questions/A/15-gaps.yaml"
+    ]
+  },
+  {
+    "id": "Q12",
+    "count": 94,
+    "bytes": 181983,
+    "files": [
+      "content/questions/A/15-h2-a15.yaml",
+      "content/questions/A/15-h2-a15b.yaml",
+      "content/questions/A/15-h2-a15c.yaml",
+      "content/questions/A/15-sm.yaml",
+      "content/questions/A/16-audit.yaml",
+      "content/questions/A/16-gaps.yaml"
+    ]
+  },
+  {
+    "id": "Q13",
+    "count": 79,
+    "bytes": 193699,
+    "files": [
+      "content/questions/A/16-h2-a16.yaml",
+      "content/questions/A/16-h2-a16b.yaml",
+      "content/questions/A/16-h2-a16c.yaml",
+      "content/questions/A/17-gaps.yaml",
+      "content/questions/A/17-h2-a17.yaml",
+      "content/questions/A/17-h2-a17b.yaml",
+      "content/questions/A/17-h2-a17c.yaml",
+      "content/questions/A/17-system-strategy.yaml",
+      "content/questions/A/18-gaps2.yaml"
+    ]
+  },
+  {
+    "id": "Q14",
+    "count": 91,
+    "bytes": 196169,
+    "files": [
+      "content/questions/A/18-h2-a18.yaml",
+      "content/questions/A/18-h2-a18b.yaml",
+      "content/questions/A/18-system-planning.yaml",
+      "content/questions/A/19-business-strategy.yaml",
+      "content/questions/A/19-gaps2.yaml",
+      "content/questions/A/19-h2-a19.yaml",
+      "content/questions/A/19-h2-a19b.yaml",
+      "content/questions/A/19-h2-a19c.yaml"
+    ]
+  },
+  {
+    "id": "Q15",
+    "count": 72,
+    "bytes": 146553,
+    "files": [
+      "content/questions/A/20-h2-a20.yaml",
+      "content/questions/A/20-tech-strategy.yaml",
+      "content/questions/A/21-business-industry.yaml",
+      "content/questions/A/21-gaps2.yaml",
+      "content/questions/A/21-h2-a21.yaml",
+      "content/questions/A/21-h2-a21b.yaml"
+    ]
+  },
+  {
+    "id": "Q16",
+    "count": 103,
+    "bytes": 185567,
+    "files": [
+      "content/questions/A/22-corporate.yaml",
+      "content/questions/A/22-gaps2.yaml",
+      "content/questions/A/22-h2-a22.yaml",
+      "content/questions/A/22-h2-a22b.yaml",
+      "content/questions/A/22-h2-a22c.yaml",
+      "content/questions/A/22-h2-a22d.yaml",
+      "content/questions/A/23-gaps2.yaml"
+    ]
+  },
+  {
+    "id": "Q17",
+    "count": 74,
+    "bytes": 157126,
+    "files": [
+      "content/questions/A/23-h2-a23.yaml",
+      "content/questions/A/23-h2-a23b.yaml",
+      "content/questions/A/23-h2-a23c.yaml",
+      "content/questions/A/23-law.yaml"
+    ]
+  },
+  {
+    "id": "Q18",
+    "count": 49,
+    "bytes": 168912,
+    "files": [
+      "content/questions/B/alg-applied.yaml",
+      "content/questions/B/alg-basic.yaml"
+    ]
+  },
+  {
+    "id": "Q19",
+    "count": 58,
+    "bytes": 185803,
+    "files": [
+      "content/questions/B/alg-core.yaml",
+      "content/questions/B/balg1-h2.yaml",
+      "content/questions/B/balg1-h2b.yaml"
+    ]
+  },
+  {
+    "id": "Q20",
+    "count": 61,
+    "bytes": 195495,
+    "files": [
+      "content/questions/B/balg1-h2c.yaml",
+      "content/questions/B/balg1-h2d.yaml",
+      "content/questions/B/balg2-h2.yaml",
+      "content/questions/B/balg2-h2b.yaml",
+      "content/questions/B/balg2-h2c.yaml",
+      "content/questions/B/balg2-h2d.yaml",
+      "content/questions/B/balg3-h2.yaml",
+      "content/questions/B/balg3-h2b.yaml"
+    ]
+  },
+  {
+    "id": "Q21",
+    "count": 123,
+    "bytes": 199917,
+    "files": [
+      "content/questions/B/balg3-h2c.yaml",
+      "content/questions/B/drill.yaml",
+      "content/questions/B/sec-h2.yaml",
+      "content/questions/B/sec-h2b.yaml"
+    ]
+  },
+  {
+    "id": "Q22",
+    "count": 52,
+    "bytes": 143897,
+    "files": [
+      "content/questions/B/sec-h2c.yaml",
+      "content/questions/B/sec-h2d.yaml",
+      "content/questions/B/sec-h2e.yaml",
+      "content/questions/B/sec.yaml"
+    ]
+  },
+  {
+    "id": "Q23",
+    "count": 80,
+    "bytes": 148523,
+    "files": [
+      "content/questions/IPA/a-01.yaml",
+      "content/questions/IPA/a-02.yaml",
+      "content/questions/IPA/a-03.yaml",
+      "content/questions/IPA/a-04.yaml",
+      "content/questions/IPA/a-05.yaml",
+      "content/questions/IPA/a-06.yaml",
+      "content/questions/IPA/a-08.yaml",
+      "content/questions/IPA/a-09.yaml",
+      "content/questions/IPA/a-10.yaml",
+      "content/questions/IPA/a-11.yaml",
+      "content/questions/IPA/a-12.yaml",
+      "content/questions/IPA/a-13.yaml",
+      "content/questions/IPA/a-14.yaml",
+      "content/questions/IPA/a-15.yaml",
+      "content/questions/IPA/a-16.yaml",
+      "content/questions/IPA/a-17.yaml",
+      "content/questions/IPA/a-19.yaml",
+      "content/questions/IPA/a-21.yaml",
+      "content/questions/IPA/a-22.yaml",
+      "content/questions/IPA/a-23.yaml"
+    ]
+  },
+  {
+    "id": "Q24",
+    "count": 24,
+    "bytes": 131224,
+    "files": [
+      "content/questions/IPA/b-alg.yaml",
+      "content/questions/IPA/b-sec.yaml"
+    ]
+  }
+]

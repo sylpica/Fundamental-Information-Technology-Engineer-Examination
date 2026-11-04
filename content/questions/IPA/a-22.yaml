@@ -48,7 +48,7 @@ questions:
     terms: ["HRテック", "フィンテック"]
     source: { examName: "令和6年度 科目A 公開問題", year: 2024, questionNo: 18 }
   - id: IPA-R06-A-019
-    topic: 1-2-2
+    topic: 22-2-2-4
     diff: 2
     noShuffle: true
     q: |

@@ -371,6 +371,13 @@ for (const file of files) {
     const topicIds = Array.isArray(raw.topic) ? raw.topic : [raw.topic];
     for (const t of topicIds) if (!topics.has(String(t))) err(where, `学習論点 ${t} がシラバスにありません`);
     const primary = topics.get(String(topicIds[0]));
+    // 科目Aの分野は中分類番号の正規形（'01' ではなく '1'）に揃える。表記が揺れると分野別演習・模試配分・分析で別分野として扱われる
+    // 科目Aの分野（category）は主論点（topic の先頭）の中分類番号から決める。ファイルの category と食い違う問題や
+    // '01' のようなゼロ埋め表記があると、分野別演習・模試の分野配分・分析・参考書の対象問題で別分野として扱われるため
+    const fileCategory = subject === 'A' && /^\d+$/.test(String(doc.category)) ? String(Number(doc.category)) : String(doc.category);
+    if (subject === 'A' && !middleNames.has(fileCategory)) err(where, `category ${doc.category} はシラバスの中分類番号ではありません`);
+    const category = subject === 'A' && primary ? primary.middle : fileCategory;
+    if (subject === 'B' && primary && primary.level !== 'b' ) err(where, `科目Bの問題の主論点 ${topicIds[0]} が科目Bの論点ではありません`);
     const choices = (raw.c ?? []).map((c) => String(c).trim());
     const type = raw.type ?? 'choice';
     if (choices.length < 2) err(where, '選択肢が2つ以上必要です');
@@ -425,7 +432,7 @@ for (const file of files) {
       syllabusVersion: syllabus.version,
       subject,
       depth: raw.depth ?? doc.depth ?? (raw.code ? 'deep' : 'quick'),
-      category: doc.category,
+      category,
       subcategory: primary ? primary.sub : '',
       topicIds: topicIds.map(String),
       questionType: type,

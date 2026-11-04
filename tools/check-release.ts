@@ -41,7 +41,10 @@ check('科目B 一問一答（短時間学習）50 問以上', bQuick.length >= 
 
 // 中分類ごとの網羅：23 中分類すべてに問題があり、末端論点の 80% 以上に問題がある
 const middles = new Set(verified.filter((q: { subject: string }) => q.subject === 'A').map((q: { category: string }) => q.category));
-check('科目A 23 中分類すべてに問題がある', middles.size >= 23, `${middles.size} / 23 中分類`);
+const validMiddles = new Set(Array.from({ length: 23 }, (_, i) => String(i + 1)));
+const strayMiddles = [...middles].filter((m) => !validMiddles.has(m as string));
+check('科目A 23 中分類すべてに問題がある', [...validMiddles].every((m) => middles.has(m)) && strayMiddles.length === 0,
+  `${[...validMiddles].filter((m) => middles.has(m)).length} / 23 中分類${strayMiddles.length ? `（中分類番号でない分野 ${strayMiddles.join('、')}）` : ''}`);
 const ratio = summary.coverage.leafCovered / summary.coverage.leafTotal;
 check('シラバス末端論点の 80% 以上を問題で網羅', ratio >= 0.8, `${summary.coverage.leafCovered} / ${summary.coverage.leafTotal}（${(ratio * 100).toFixed(1)}%）`);
 void coverage;

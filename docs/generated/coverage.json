@@ -6,8 +6,8 @@
    "no": "1",
    "name": "基礎理論",
    "field": "テクノロジ系",
-   "questions": 138,
-   "verified": 128,
+   "questions": 140,
+   "verified": 140,
    "leafTotal": 34,
    "leafCovered": 34,
    "uncovered": []
@@ -16,8 +16,8 @@
    "no": "2",
    "name": "アルゴリズムとプログラミング",
    "field": "テクノロジ系",
-   "questions": 170,
-   "verified": 153,
+   "questions": 258,
+   "verified": 258,
    "leafTotal": 32,
    "leafCovered": 32,
    "uncovered": []
@@ -36,8 +36,8 @@
    "no": "4",
    "name": "システム構成要素",
    "field": "テクノロジ系",
-   "questions": 42,
-   "verified": 42,
+   "questions": 72,
+   "verified": 72,
    "leafTotal": 12,
    "leafCovered": 12,
    "uncovered": []
@@ -47,7 +47,7 @@
    "name": "ソフトウェア",
    "field": "テクノロジ系",
    "questions": 51,
-   "verified": 43,
+   "verified": 51,
    "leafTotal": 30,
    "leafCovered": 30,
    "uncovered": []
@@ -56,8 +56,8 @@
    "no": "6",
    "name": "ハードウェア",
    "field": "テクノロジ系",
-   "questions": 14,
-   "verified": 14,
+   "questions": 29,
+   "verified": 29,
    "leafTotal": 5,
    "leafCovered": 5,
    "uncovered": []
@@ -76,8 +76,8 @@
    "no": "8",
    "name": "情報メディア",
    "field": "テクノロジ系",
-   "questions": 15,
-   "verified": 15,
+   "questions": 23,
+   "verified": 23,
    "leafTotal": 9,
    "leafCovered": 9,
    "uncovered": []
@@ -86,8 +86,8 @@
    "no": "9",
    "name": "データベース",
    "field": "テクノロジ系",
-   "questions": 77,
-   "verified": 69,
+   "questions": 85,
+   "verified": 85,
    "leafTotal": 21,
    "leafCovered": 21,
    "uncovered": []
@@ -96,8 +96,8 @@
    "no": "10",
    "name": "ネットワーク",
    "field": "テクノロジ系",
-   "questions": 73,
-   "verified": 62,
+   "questions": 91,
+   "verified": 91,
    "leafTotal": 36,
    "leafCovered": 36,
    "uncovered": []
@@ -106,8 +106,8 @@
    "no": "11",
    "name": "セキュリティ",
    "field": "テクノロジ系",
-   "questions": 133,
-   "verified": 117,
+   "questions": 189,
+   "verified": 189,
    "leafTotal": 33,
    "leafCovered": 33,
    "uncovered": []
@@ -116,8 +116,8 @@
    "no": "12",
    "name": "システム開発技術",
    "field": "テクノロジ系",
-   "questions": 170,
-   "verified": 162,
+   "questions": 178,
+   "verified": 178,
    "leafTotal": 95,
    "leafCovered": 95,
    "uncovered": []
@@ -126,8 +126,8 @@
    "no": "13",
    "name": "ソフトウェア開発管理技術",
    "field": "テクノロジ系",
-   "questions": 53,
-   "verified": 53,
+   "questions": 69,
+   "verified": 69,
    "leafTotal": 25,
    "leafCovered": 25,
    "uncovered": []
@@ -136,8 +136,8 @@
    "no": "14",
    "name": "プロジェクトマネジメント",
    "field": "マネジメント系",
-   "questions": 83,
-   "verified": 74,
+   "questions": 99,
+   "verified": 99,
    "leafTotal": 36,
    "leafCovered": 36,
    "uncovered": []
@@ -146,8 +146,8 @@
    "no": "15",
    "name": "サービスマネジメント",
    "field": "マネジメント系",
-   "questions": 59,
-   "verified": 59,
+   "questions": 81,
+   "verified": 81,
    "leafTotal": 39,
    "leafCovered": 39,
    "uncovered": []
@@ -156,8 +156,8 @@
    "no": "16",
    "name": "システム監査",
    "field": "マネジメント系",
-   "questions": 25,
-   "verified": 25,
+   "questions": 43,
+   "verified": 43,
    "leafTotal": 13,
    "leafCovered": 13,
    "uncovered": []
@@ -166,8 +166,8 @@
    "no": "17",
    "name": "システム戦略",
    "field": "ストラテジ系",
-   "questions": 47,
-   "verified": 47,
+   "questions": 63,
+   "verified": 63,
    "leafTotal": 24,
    "leafCovered": 24,
    "uncovered": []
@@ -176,8 +176,8 @@
    "no": "18",
    "name": "システム企画",
    "field": "ストラテジ系",
-   "questions": 21,
-   "verified": 21,
+   "questions": 37,
+   "verified": 37,
    "leafTotal": 15,
    "leafCovered": 15,
    "uncovered": []
@@ -186,8 +186,8 @@
    "no": "19",
    "name": "経営戦略マネジメント",
    "field": "ストラテジ系",
-   "questions": 47,
-   "verified": 38,
+   "questions": 61,
+   "verified": 61,
    "leafTotal": 17,
    "leafCovered": 17,
    "uncovered": []
@@ -196,8 +196,8 @@
    "no": "20",
    "name": "技術戦略マネジメント",
    "field": "ストラテジ系",
-   "questions": 10,
-   "verified": 10,
+   "questions": 18,
+   "verified": 18,
    "leafTotal": 5,
    "leafCovered": 5,
    "uncovered": []
@@ -206,8 +206,8 @@
    "no": "21",
    "name": "ビジネスインダストリ",
    "field": "ストラテジ系",
-   "questions": 41,
-   "verified": 41,
+   "questions": 57,
+   "verified": 57,
    "leafTotal": 23,
    "leafCovered": 23,
    "uncovered": []
@@ -216,8 +216,8 @@
    "no": "22",
    "name": "企業活動",
    "field": "ストラテジ系",
-   "questions": 59,
-   "verified": 59,
+   "questions": 94,
+   "verified": 94,
    "leafTotal": 32,
    "leafCovered": 32,
    "uncovered": []
@@ -226,8 +226,8 @@
    "no": "23",
    "name": "法務",
    "field": "ストラテジ系",
-   "questions": 74,
-   "verified": 74,
+   "questions": 94,
+   "verified": 94,
    "leafTotal": 47,
    "leafCovered": 47,
    "uncovered": []
@@ -237,17 +237,17 @@
   {
    "id": "B1",
    "name": "プログラミング全般",
-   "questions": 6
+   "questions": 24
   },
   {
    "id": "B2",
    "name": "プログラムの処理の基本要素",
-   "questions": 96
+   "questions": 159
   },
   {
    "id": "B3",
    "name": "データ構造及びアルゴリズム",
-   "questions": 92
+   "questions": 93
   },
   {
    "id": "B4",
@@ -257,7 +257,7 @@
   {
    "id": "B5",
    "name": "情報セキュリティの確保",
-   "questions": 32
+   "questions": 72
   }
  ]
 }
