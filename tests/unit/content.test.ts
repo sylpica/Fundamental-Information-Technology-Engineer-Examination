@@ -53,6 +53,13 @@ describe.skipIf(!hasData)('教材データ', () => {
     for (const q of questions.filter((x) => x.subject === 'B')) expect(['B-ALG', 'B-SEC'], q.id).toContain(q.category);
   });
 
+  it('depth は quick か deep で、科目B のセキュリティ事例問題（長文）は deep', () => {
+    for (const q of questions) expect(['quick', 'deep'], `${q.id}: ${q.depth}`).toContain(q.depth);
+    for (const q of questions.filter((x) => x.subject === 'B' && x.depth === 'quick')) {
+      expect(q.questionText.length + (q.code ?? '').length, `${q.id} は短時間学習には長すぎる`).toBeLessThan(800);
+    }
+  });
+
   it('すべての問題に出典とライセンス状態がある', () => {
     for (const q of questions) {
       expect(q.source?.kind, q.id).toBeTruthy();

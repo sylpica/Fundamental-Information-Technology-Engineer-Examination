@@ -27,6 +27,8 @@ describe('出題構成', () => {
     ...makePool(['B-ALG'], 30, { subject: 'B', depth: 'deep' }),
     ...makePool(['B-SEC'], 10, { subject: 'B', depth: 'deep' }),
     ...makePool(['B-ALG'], 10, { subject: 'B', depth: 'quick' }).map((q) => ({ ...q, id: q.id.replace('BALG', 'DRL') })),
+    // 短時間学習用の短いセキュリティ問題は本番形式の模試に含めない（回帰）
+    ...makePool(['B-SEC'], 30, { subject: 'B', depth: 'quick' }).map((q) => ({ ...q, id: q.id + 'Q' })),
   ];
 
   it('科目Aは重みに比例して60問を重複なく選び、分野順に並べる', () => {

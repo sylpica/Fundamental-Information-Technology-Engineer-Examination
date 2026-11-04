@@ -70,7 +70,8 @@ export function composeExam(
   }
   const examLike = (q: Question) => q.subject === 'B' && q.questionType === 'choice' && q.depth === 'deep' && q.difficulty <= 3;
   const alg = shuffle(questions.filter((q) => examLike(q) && q.category === 'B-ALG'), rand);
-  const sec = shuffle(questions.filter((q) => q.subject === 'B' && q.questionType === 'choice' && q.category === 'B-SEC' && q.difficulty <= 3), rand);
+  // セキュリティも本番形式（depth: deep の事例問題）だけから出題する。短時間学習用の短い問題は含めない
+  const sec = shuffle(questions.filter((q) => examLike(q) && q.category === 'B-SEC'), rand);
   const ratio = plan.count / EXAM_SPEC.B.count;
   const nSec = Math.max(1, Math.round(EXAM_SPEC.B.sec * ratio));
   const nAlg = plan.count - nSec;

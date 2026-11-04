@@ -406,6 +406,9 @@ for (const file of files) {
     if (shuffles && /(?:^|[^ァ-ヶー])[アイウエ](?:が正|は誤|と同じ|の説明)/.test(whyRefs)) err(where, '選択肢の解説で他の選択肢を記号で参照しています');
     if (type === 'input' && !(raw.accept?.length)) err(where, '入力式には accept（許容解答）が必要です');
     if (raw.code && /【[a-z]】/.test(raw.q + raw.code) === false && raw.verify?.cases) err(where, '空欄のないプログラムに cases 検証が指定されています');
+    // depth は quick（短時間で解ける）か deep（本番形式・じっくり）のどちらか。それ以外の値は、短時間学習・読解・模試のどの出題対象にも入らなくなる
+    const depth = raw.depth ?? doc.depth ?? (raw.code ? 'deep' : 'quick');
+    if (depth !== 'quick' && depth !== 'deep') err(where, `depth は quick か deep です（${depth}）`);
     const diff = (raw.diff ?? 2) as 1 | 2 | 3 | 4;
     if (![1, 2, 3, 4].includes(diff)) err(where, 'diff は 1〜4 です（1 基礎 / 2 標準 / 3 応用 / 4 高難度）');
     const batch = raw.batch ?? doc.batch;
@@ -431,7 +434,7 @@ for (const file of files) {
       id: raw.id,
       syllabusVersion: syllabus.version,
       subject,
-      depth: raw.depth ?? doc.depth ?? (raw.code ? 'deep' : 'quick'),
+      depth,
       category,
       subcategory: primary ? primary.sub : '',
       topicIds: topicIds.map(String),

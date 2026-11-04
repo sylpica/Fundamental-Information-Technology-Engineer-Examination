@@ -33,7 +33,7 @@ check('ほぼ同一の問題 0 件', summary.similarPairs === 0, `${summary.simi
 const bySubCat = (s: string, c?: string) => verified.filter((q: { subject: string; category: string }) => q.subject === s && (!c || q.category === c));
 check('科目A 600 問以上', bySubCat('A').length >= 600, `${bySubCat('A').length} 問`);
 const bDeep = verified.filter((q: { subject: string; depth: string; category: string }) => q.subject === 'B' && q.depth === 'deep' && q.category === 'B-ALG');
-const bSec = bySubCat('B', 'B-SEC');
+const bSec = verified.filter((q: { subject: string; depth: string; category: string }) => q.subject === 'B' && q.depth === 'deep' && q.category === 'B-SEC');
 const bQuick = verified.filter((q: { subject: string; depth: string }) => q.subject === 'B' && q.depth === 'quick');
 check('科目B 本番形式（アルゴリズム）80 問以上', bDeep.length >= 80, `${bDeep.length} 問`);
 check('科目B 本番形式（セキュリティ）20 問以上', bSec.length >= 20, `${bSec.length} 問`);
