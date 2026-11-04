@@ -97,3 +97,16 @@ test('不正なファイルのインポートは拒否される', async ({ page 
   await expect(page.getByText(/バックアップファイルではありません/)).toBeVisible();
   await expect(page.getByRole('button', { name: '置き換える' })).toHaveCount(0);
 });
+
+test('模擬試験（本番形式）は時間切れで自動的に終了し、採点結果が表示される', async ({ page }) => {
+  await page.clock.install();
+  await open(page, '/exam');
+  await page.getByRole('button', { name: /^科目B/ }).click();
+  await page.getByRole('button', { name: '試験を開始する' }).click();
+  await page.getByRole('list', { name: '選択肢' }).getByRole('button').first().click();
+  // 実施中は正誤・解説が出ない
+  await expect(page.getByRole('region', { name: '解説' })).toHaveCount(0);
+  await page.clock.fastForward('01:41:00'); // 科目B は 100 分
+  await expect(page.getByText(/正答/).first()).toBeVisible({ timeout: 15_000 });
+  await expect(page.getByRole('button', { name: '試験を終了して採点する' })).toHaveCount(0);
+});
