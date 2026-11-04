@@ -7,7 +7,7 @@
 - 作業ブランチ：`claude/tender-bardeen-2ckjqr`（push 済み）。デプロイ対象 `claude/fe-exam-learning-app-nuiom6` へは、品質ゲート通過後に PR でマージする。GitHub 所有者は `sylpica`（公開 URL https://sylpica.github.io/Fundamental-Information-Technology-Engineer-Examination/）。
 - 修正済み（ef1a292）：科目Aの分野番号が H2 ファイルで `'01'`〜`'09'` とゼロ埋めされ、236 問が別分野扱い（模試の分野配分・参考書の対象問題・分野別分析から漏れる）になっていた不具合。教材ビルドで主論点の中分類番号から分野を決めるよう変更し、主論点の誤付与 3 件（A10-511/512、A19-523、IPA-R06-A-019）を修正。回帰テスト（分野番号の正規形、fills・sqlChoices と選択肢の対応、ID 一意）を追加。
 - 全件意味監査の方式：`docs/audit/AUDITOR_BRIEF.md`。バッチ分けは `docs/audit/batches.json`（Q01〜Q24、問題ファイル単位）。担当ごとに worktree で盲検（`tools/audit/blind.mjs`）→照合（`tools/audit/compare.mjs`）→全問精査→YAML 修正→台帳 `docs/audit/questions/<バッチ>.jsonl`・発見事項 `docs/audit/findings/<バッチ>.md`。集計は `node tools/audit/ledger-check.mjs`。
-- 進捗（2026-11-04 13:10 UTC）：監査・統合済み Q01・Q02・Q03・Q05・Q08（489 問）。作業中 Q04・Q06・Q07（各 worktree、未コミット変更あり）。Q09・Q10 は盲検ファイルのみ（担当再開待ち）。Q11〜Q24 未着手。独立再監査 RA1（Q01〜Q03 の修正 67 問）実行中。利用上限に 2 回到達（同時実行は 4 まで）。
+- 進捗（2026-11-04 23:20 UTC）：監査・統合済み Q01〜Q10・Q12（1,036 問）。再監査済み RA1（Q01〜Q03）・RA2（Q05〜Q08）。作業中：Q11・Q13・Q14 の監査、RA3（Q04・Q09・Q10 と A04-501/515 の同型判定）。Q15〜Q24 と用語辞典 G01〜G07 は未着手。利用上限に 3 回到達（同時実行は 4）。
 - 追加で修正済み：辞典の分野表記（49 種→中分類 23）、不正な depth: standard（40 問）と IPA 科目B セキュリティ長文の短時間扱い、科目B 模試のセキュリティ枠を本番形式に限定、UI ルール 4 点（上部バー 65→49px、説明文を下部へ、一覧の文字切れ解消、辞典・読解一覧の段階表示）、時間切れ・高難度特訓の E2E 追加。
 - 残る既知事項：verify.value が正答値の直書きの問題 71 問（担当バッチで式化中。統合後に残数を確認し、ビルド検査を追加する）。
 - 初期検証（2026-11-04、監査開始時 423f598）：教材ビルド エラー 0（公開 2,002・A 1,635・B 367、用語 2,712、網羅 624/624）、単体 80 件通過、tsc 成功、vite build 成功、`ENFORCE_H2=1 npm run check:release` 成功、E2E ローカル Chromium（mobile/desktop）132 件・Firefox/WebKit 67 件 通過、npm audit：moderate 9・low 3（全て開発・ビルド時依存。vite 6.4.4 の dev サーバ脆弱性、workbox-build 配下）。
