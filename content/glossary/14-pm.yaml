@@ -79,12 +79,12 @@ terms:
     aliases: [教訓文書]
     simple: プロジェクトでうまくいったことや失敗から学んだことをまとめ、次に活かすための記録です。
     definition: プロジェクトで得た成功・失敗の要因や改善策を文書化したもの。組織のプロセス資産として将来のプロジェクトに活用する。
-    related: [プロジェクト憲章]
+    related: [終結プロセス群, プロジェクト憲章]
   - term: ステークホルダ
     reading: ステークホルダ
     simple: プロジェクトに関わったり、影響を受けたりするすべての人や組織です。
     definition: プロジェクトに影響を及ぼす、又は影響を受ける個人・組織。特定してステークホルダ登録簿に記録し、権力と関心度などで分析して対応を決める。
-    related: [プロジェクト憲章]
+    related: [ステークホルダ登録簿, ステークホルダ分析]
   - term: WBS
     reading: ダブリュービーエス
     fullName: Work Breakdown Structure
@@ -122,7 +122,7 @@ terms:
     reading: にんげつ
     simple: 1人が1か月働く作業量を1とした、作業の量の単位です。
     definition: 1人が1か月に行う作業量を単位とした工数の表し方。工数 ÷ 要員数 で期間を、規模 ÷ 生産性 で工数を求める。
-    related: [ファンクションポイント法]
+    related: [人日, ブルックスの法則, ファンクションポイント法]
   - term: アローダイアグラム
     reading: アローダイアグラム
     simple: 作業を矢印で、作業のつなぎ目を丸で表して、作業の順番と日数を示す図です。
@@ -181,9 +181,9 @@ terms:
     fullName: Program Evaluation and Review Technique
     japanese: プログラム評価レビュー技法
     words:
-      - { en: Program, ja: 計画 }
+      - { en: Program, ja: プログラム }
       - { en: Evaluation, ja: 評価 }
-      - { en: Review, ja: 検討 }
+      - { en: Review, ja: レビュー }
       - { en: Technique, ja: 技法 }
     simple: アローダイアグラムを使って日程を計画・管理する手法です。
     definition: アローダイアグラムで作業の順序と所要期間を表し、日程を計画・管理する手法。所要期間の三点見積りを用いる。

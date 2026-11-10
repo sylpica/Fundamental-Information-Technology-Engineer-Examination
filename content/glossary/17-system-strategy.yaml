@@ -108,7 +108,7 @@ terms:
     reading: ビジネスアーキテクチャ
     aliases: [政策・業務体系]
     simple: EA のうち、業務の内容や流れ、組織を整理したものです。
-    definition: EA を構成するアーキテクチャの一つで、業務内容・組織・業務の流れを体系化したもの。業務説明書、DFD、WFA などで表す。
+    definition: EA を構成するアーキテクチャの一つで、業務内容・組織・業務の流れを体系化したもの。業務説明書、DFD、業務流れ図（WFA）などで表す。
     related: [EA]
   - term: As-isモデル
     reading: アズイズモデル
