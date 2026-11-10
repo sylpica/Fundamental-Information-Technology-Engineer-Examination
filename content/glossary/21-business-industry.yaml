@@ -181,7 +181,6 @@ terms:
     reading: エフエムエス
     fullName: Flexible Manufacturing System
     japanese: フレキシブル生産システム
-    aliases: [FMC]
     words:
       - { en: Flexible, ja: 柔軟な }
       - { en: Manufacturing, ja: 製造 }
@@ -204,7 +203,6 @@ terms:
     reading: キャム
     fullName: Computer Aided Manufacturing
     japanese: コンピュータ支援製造
-    aliases: [CAD/CAM]
     words:
       - { en: Computer, ja: コンピュータ }
       - { en: Aided, ja: 支援された }
@@ -293,11 +291,11 @@ terms:
     related: [OMO, オムニチャネル]
   - term: OMO
     reading: オーエムオー
-    fullName: Online Merges with Offline
+    fullName: Online Merge Offline
     japanese: オンラインとオフラインの融合
     words:
       - { en: Online, ja: オンライン }
-      - { en: Merges with, ja: 融合する }
+      - { en: Merge, ja: 融合する }
       - { en: Offline, ja: オフライン }
     simple: ネットとお店を区別せず、一つながりの買物体験を作る考え方です。
     definition: オンラインとオフラインを区別せず融合させ、一体として顧客体験を設計する考え方。
@@ -326,7 +324,6 @@ terms:
     related: [IoT]
   - term: 電子政府
     reading: でんしせいふ
-    aliases: [電子自治体, e-Gov]
     simple: 行政の手続をインターネットでできるようにするなど、IT を使った行政のことです。
     definition: 行政手続のオンライン化や行政情報の電子的な提供などにより、行政の効率化と住民の利便性向上を図る取組み。e-Gov は政府の総合窓口サイト。
   - term: RFID
@@ -342,7 +339,7 @@ terms:
     related: [ICカード, トレーサビリティ]
   - term: ICカード
     reading: アイシーカード
-    aliases: [スマートカード, 接触型ICカード, 非接触型ICカード]
+    aliases: [スマートカード]
     simple: IC チップを埋め込んだカードで、磁気カードより偽造されにくいカードです。
     definition: IC チップを内蔵し、情報の記録や演算を行えるカード。接触型と非接触型があり、耐タンパ性が高い。
     related: [耐タンパ性, RFID]
@@ -382,7 +379,6 @@ terms:
     definition: 個人などが保有する遊休資産（部屋、自動車、スキルなど）をインターネット上のプラットフォームを介して貸し借り・共有する経済活動。
   - term: EDI規約
     reading: イーディーアイきやく
-    aliases: [情報表現規約, 情報伝達規約, 業務運用規約, 基本取引規約]
     simple: EDI で正しくデータをやり取りするために、企業同士で決めておく約束事です。
     definition: EDI の当事者間の取決め。取引の契約に関する基本取引規約、業務の運用に関する業務運用規約、メッセージの形式に関する情報表現規約、通信方法に関する情報伝達規約がある。
     related: [EDI]
@@ -416,7 +412,6 @@ terms:
     definition: 複数の交通手段を ICT で統合し、経路検索・予約・決済を一括して行えるようにして、移動を一つのサービスとして提供する考え方。
   - term: コネクテッドカー
     reading: コネクテッドカー
-    aliases: [CASE]
     simple: インターネットに常につながって、情報をやり取りする自動車です。
     definition: 通信機能をもち、インターネットに常時接続して交通情報や車両の状態などを送受信する自動車。CASE（Connected、Autonomous、Shared & Services、Electric）の一つ。
     related: [自動運転]

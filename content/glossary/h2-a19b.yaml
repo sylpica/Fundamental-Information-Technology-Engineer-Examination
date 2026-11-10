@@ -3,7 +3,7 @@ terms:
   - term: CPA
     reading: シーピーエー
     simple: 顧客や購入を 1 件獲得するのにかかった広告費のことです。
-    definition: Cost Per Action の略で、広告費をコンバージョン（購入・申込みなどの成果）の件数で割った、成果 1 件当たりの獲得単価。クリック単価（CPC）とは分母が異なり、最終的な成果に対する費用を示す。
+    definition: Cost Per Action の略（Cost Per Acquisition とも表記され、いずれも顧客獲得単価の意味で使われる）で、広告費をコンバージョン（購入・申込みなどの成果）の件数で割った、成果 1 件当たりの獲得単価。クリック単価（CPC）とは分母が異なり、最終的な成果に対する費用を示す。
     related: [CPC, コンバージョン率]
   - term: CPC
     reading: シーピーシー
