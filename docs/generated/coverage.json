@@ -237,17 +237,17 @@
   {
    "id": "B1",
    "name": "プログラミング全般",
-   "questions": 24
+   "questions": 19
   },
   {
    "id": "B2",
    "name": "プログラムの処理の基本要素",
-   "questions": 160
+   "questions": 151
   },
   {
    "id": "B3",
    "name": "データ構造及びアルゴリズム",
-   "questions": 92
+   "questions": 106
   },
   {
    "id": "B4",
