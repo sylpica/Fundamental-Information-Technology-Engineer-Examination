@@ -215,12 +215,6 @@ terms:
     related: [KGI, KPI]
   - term: MVV
     reading: エムブイブイ
-    fullName: Mission, Vision, Value
-    japanese: ミッション・ビジョン・バリュー
-    words:
-      - { en: Mission, ja: 使命 }
-      - { en: Vision, ja: 将来像 }
-      - { en: Value, ja: 価値観 }
     simple: 会社の使命、目指す姿、大切にする価値観をまとめたものです。
     definition: 企業の使命（ミッション）、目指す将来像（ビジョン）、行動の基準となる価値観（バリュー）を示したもの。
   - term: ビジネスモデルキャンバス
@@ -318,13 +312,6 @@ terms:
     related: [ブルーオーシャン戦略]
   - term: "4C"
     reading: よんしー
-    fullName: "Customer value, Cost, Convenience, Communication"
-    japanese: 顧客価値、顧客コスト、利便性、コミュニケーション
-    words:
-      - { en: Customer value, ja: 顧客にとっての価値 }
-      - { en: Cost, ja: 顧客が負担する費用 }
-      - { en: Convenience, ja: 入手しやすさ }
-      - { en: Communication, ja: 対話 }
     simple: マーケティングミックスを、売り手ではなく買い手の視点で見直した4つの要素です。
     definition: 売り手の視点の 4P（製品、価格、流通、販促）を、買い手の視点に置き換えた枠組み。顧客価値、顧客コスト、利便性、コミュニケーションの 4 つ。
     related: [マーケティングミックス]
