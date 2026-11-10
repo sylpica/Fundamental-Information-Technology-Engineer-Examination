@@ -209,7 +209,7 @@ terms:
       - { en: HTTP, ja: Web の通信規約 }
       - { en: over TLS, ja: TLS（暗号化通信）の上で }
     simple: Web の通信を暗号化して、盗み見や改ざんを防ぐ仕組みです。URL が https:// で始まります。
-    definition: HTTP の通信を TLS で暗号化・認証したもの。サーバ証明書によりサーバの真正性を確認し、通信内容の盗聴・改ざんを防ぐ。通常 443 番ポートを使う。
+    definition: HTTP の通信を TLS で暗号化・認証したもの。サーバ証明書によりサーバの真正性を確認し、通信内容の盗聴・改ざんを防ぐ。通常 443 番ポートを使う。RFC 2818 の題名は「HTTP Over TLS」で、「Hypertext Transfer Protocol Secure」とも説明される。
     related: [HTTP, TLS]
   - term: DHCP
     reading: ディーエイチシーピー
@@ -424,7 +424,7 @@ terms:
       - { en: Service Set, ja: 無線LANのひとまとまり }
       - { en: Identifier, ja: 識別子 }
     simple: 無線LANのアクセスポイントを見分けるための名前です。
-    definition: 無線 LAN のネットワークを識別するための名前（最大 32 文字）。接続時にこの名前でネットワークを選ぶ。
+    definition: 無線 LAN のネットワークを識別するための名前（最大 32 バイト＝32 オクテット）。接続時にこの名前でネットワークを選ぶ。
     related: [無線LAN, アクセスポイント]
   - term: アクセスポイント
     reading: あくせすぽいんと
@@ -664,7 +664,6 @@ terms:
     related: [LAN間接続装置, ハブ]
   - term: ハブ
     reading: はぶ
-    aliases: [リピータハブ]
     simple: 受け取った信号を、つながっているすべてのポートに送り出す集線装置です。
     definition: 複数の端末を接続する集線装置。リピータハブは、受信した信号を接続されたすべてのポートに送出する。
     related: [LAN間接続装置, スイッチングハブ]
@@ -1051,7 +1050,7 @@ terms:
       - { en: Long Term, ja: 長期的な }
       - { en: Evolution, ja: 進化 }
     simple: "3Gを高速化した携帯電話の通信規格で、4Gの一つとして広く使われています。"
-    definition: "3G を発展させた高速な移動通信規格。実用的な高速通信を実現し、広く「4G」と呼ばれる。"
+    definition: "3G を発展させた高速な移動通信規格。実用的な高速通信を実現し、3GPP が策定した。国際的な 4G の要件を満たすのは LTE-Advanced だが、LTE も広く「4G」と呼ばれる。"
     related: ["5G", "4G"]
   - term: "4G"
     reading: よんじー
@@ -1071,7 +1070,7 @@ terms:
       - { en: embedded, ja: 組み込まれた }
       - { en: SIM, ja: 契約者識別モジュール }
     simple: 端末に組み込まれていて、通信契約の情報を後から書き込める、カード不要のSIMです。
-    definition: 端末に内蔵された SIM で、物理的なカードを差し替えずに通信事業者の契約情報を書き込める。
+    definition: 端末内蔵の IC チップ（eUICC）に、物理的なカードを差し替えずに通信事業者の契約情報（プロファイル）を遠隔で書き込める SIM。GSMA は、遠隔書込みができる SIM を eSIM と位置付ける。
     related: ["5G", SIMカード]
   - term: SIMカード
     reading: しむかーど
