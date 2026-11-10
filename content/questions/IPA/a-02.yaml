@@ -102,7 +102,7 @@ questions:
       - "全体を降順にしたもので，左が小さい条件と逆になっている。"
     know: "2 分探索木を中間順にたどると，昇順の列になる。"
     terms: ["2分探索木", "2分木"]
-    source: { examName: "令和7年度 科目A 公開問題", year: 2025, questionNo: 3 }
+    source: { examName: "令和7年度 科目A 公開問題", year: 2025, questionNo: 3, modified: true, modificationNote: "解説を本アプリで作成。木構造の図を，各節点と子の関係を述べる箇条書きに文章化し，問題文の「図の木構造」を「次の木構造」に改めた。その他の問題文・選択肢は原文のまま" }
   - id: IPA-R07-A-012
     topic: 2-3-1-7
     diff: 1
