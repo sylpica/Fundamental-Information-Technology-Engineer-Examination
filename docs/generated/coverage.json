@@ -186,8 +186,8 @@
    "no": "19",
    "name": "経営戦略マネジメント",
    "field": "ストラテジ系",
-   "questions": 61,
-   "verified": 61,
+   "questions": 60,
+   "verified": 60,
    "leafTotal": 17,
    "leafCovered": 17,
    "uncovered": []
@@ -196,8 +196,8 @@
    "no": "20",
    "name": "技術戦略マネジメント",
    "field": "ストラテジ系",
-   "questions": 18,
-   "verified": 18,
+   "questions": 19,
+   "verified": 19,
    "leafTotal": 5,
    "leafCovered": 5,
    "uncovered": []
