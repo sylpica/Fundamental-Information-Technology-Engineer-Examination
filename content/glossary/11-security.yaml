@@ -32,7 +32,7 @@ terms:
     fullName: Non-Repudiation
     japanese: 否認防止
     words:
-      - { en: Non-, ja: 〜させない }
+      - { en: Non-, ja: 〜でない（否定を表す接頭辞） }
       - { en: Repudiation, ja: 否認（後から否定すること） }
     simple: 「やっていない」「送っていない」と後から言い逃れできないようにすることです。
     definition: 主張された事象または処置の発生、およびそれを引き起こしたエンティティを証明する能力。デジタル署名、ログ、タイムスタンプで実現する。
@@ -436,13 +436,13 @@ terms:
     related: [HTTPS, デジタル証明書]
   - term: IPsec
     reading: アイピーセック
-    fullName: Security Architecture for Internet Protocol
-    japanese: IP のセキュリティアーキテクチャ
+    fullName: Security Architecture for the Internet Protocol
+    japanese: インターネットプロトコルのセキュリティアーキテクチャ
     words:
-      - { en: IP, ja: インターネットプロトコル }
-      - { en: sec (Security), ja: セキュリティ }
+      - { en: Security Architecture, ja: セキュリティアーキテクチャ }
+      - { en: for the Internet Protocol, ja: インターネットプロトコルのための }
     simple: IP のレベルで通信を暗号化・認証する仕組みで、拠点間 VPN などに使われます。
-    definition: ネットワーク層で IP パケットの暗号化・認証を行うプロトコル群。インターネット VPN などに用いる。
+    definition: ネットワーク層で IP パケットの暗号化・認証を行うプロトコル群。インターネット VPN などに用いる。fullName は RFC 4301 の標題で、略称の IPsec は IP Security の意味で用いられる。
     related: [VPN, TLS]
   - term: WPA3
     reading: ダブリューピーエースリー
@@ -649,7 +649,7 @@ terms:
       - { en: Remote Access, ja: 遠隔からのアクセス }
       - { en: Trojan, ja: トロイの木馬 }
     simple: 感染した端末を、外部から遠隔操作できるようにするマルウェアです。
-    definition: 感染した端末を遠隔から操作できるようにするマルウェア（遠隔操作型ウイルス）。IPA のシラバスでは Remote Access Trojan とされる。攻撃者に悪用されると、情報の窃取や追加のマルウェアの導入に使われる。正規の遠隔操作ツール（Remote Access Tool）が悪用されることもある。
+    definition: 感染した端末を遠隔から操作できるようにするマルウェア（遠隔操作型ウイルス）。Remote Access Trojan の略とされる。攻撃者に悪用されると、情報の窃取や追加のマルウェアの導入に使われる。正規の遠隔操作ツール（Remote Access Tool）が悪用されることもある。
     related: [マルウェア, バックドア]
   - term: 二重脅迫
     reading: にじゅうきょうはく
@@ -1251,11 +1251,11 @@ terms:
     related: [ISMS, JIS Q 27002]
   - term: SOC
     reading: そっく
-    fullName: Security Operation Center
+    fullName: Security Operations Center
     japanese: セキュリティオペレーションセンター
     words:
       - { en: Security, ja: セキュリティ }
-      - { en: Operation, ja: 運用 }
+      - { en: Operations, ja: 運用 }
       - { en: Center, ja: センター }
     simple: セキュリティ機器やシステムを24時間体制で監視し、攻撃の検知や分析を行う組織です。
     definition: ネットワークやシステムを常時監視し、セキュリティ上の脅威の検知と分析を行う組織または拠点。インシデント対応を行う CSIRT と連携する。
@@ -1285,7 +1285,7 @@ terms:
       - { en: Incident readiness, ja: 事故への備え }
       - { en: Strategy for Cybersecurity, ja: サイバーセキュリティ戦略 }
     simple: 日本政府のサイバーセキュリティ政策の企画・調整を行う、内閣官房の組織です。
-    definition: 日本政府のサイバーセキュリティに関する政策の企画・立案と、政府機関の対策の調整を行う内閣官房の組織。
+    definition: 日本政府のサイバーセキュリティに関する政策の企画・立案と、政府機関の対策の調整を行う内閣官房の組織。2025 年に国家サイバー統括室（NCO）へ改組されたが、試験や文献では NISC の名称が使われる。
     related: [CSIRT]
   - term: サイバーセキュリティ経営ガイドライン
     reading: さいばーせきゅりてぃけいえいがいどらいん
@@ -1302,7 +1302,7 @@ terms:
       - { en: Evaluation and Certification Scheme, ja: 評価及び認証制度 }
     simple: IT製品のセキュリティ機能を、ISO/IEC 15408に基づいて評価・認証する日本の制度です。
     definition: IT 関連製品のセキュリティ機能が、ISO/IEC 15408（コモンクライテリア）に基づいて適切に設計・実装されているかを評価し、認証する日本の制度。
-    related: [CVSS, JCMVP]
+    related: [JCMVP]
   - term: JCMVP
     reading: じぇいしーえむぶいぴー
     fullName: Japan Cryptographic Module Validation Program
@@ -1313,7 +1313,7 @@ terms:
       - { en: Validation Program, ja: 試験及び認証制度 }
     simple: 暗号モジュールが正しく実装されているかを、試験して認証する日本の制度です。
     definition: IT 製品に組み込まれる暗号モジュールの安全性を、ISO/IEC 19790 に基づいて試験し認証する日本の制度。
-    related: [CVSS, JISEC]
+    related: [JISEC]
   - term: 脆弱性診断
     reading: ぜいじゃくせいしんだん
     simple: システムの弱点がないかを、ツールなどで検査することです。
