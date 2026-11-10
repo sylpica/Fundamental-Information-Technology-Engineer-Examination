@@ -60,6 +60,14 @@ describe.skipIf(!hasData)('教材データ', () => {
     }
   });
 
+  it('IPA 公開問題は選択肢を並べ替えない（原典の記号と登録正答が一致する）', () => {
+    // 過去に正答位置の均等化で IPA 問題の選択肢が並べ替えられ、登録正答の記号が公式解答と食い違った
+    for (const q of questions.filter((x) => x.source.kind === 'ipa')) {
+      expect(q.noShuffle, `${q.id} は noShuffle が必要`).toBe(true);
+      expect(q.id, q.id).toMatch(/^IPA-R\d{2}-[AB]-\d{3}$/);
+    }
+  });
+
   it('すべての問題に出典とライセンス状態がある', () => {
     for (const q of questions) {
       expect(q.source?.kind, q.id).toBeTruthy();
