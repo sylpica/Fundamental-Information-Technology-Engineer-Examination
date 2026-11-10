@@ -84,7 +84,7 @@ export function SourceLine({ q }: { q: Question }) {
   return (
     <p className="xsmall muted" style={{ marginTop: 14 }}>
       問題ID：{q.id}（v{q.contentVersion}）／{q.source.kind === 'ipa' ? (
-        <>出典：{q.source.title}{q.source.modified && q.source.modificationNote ? `（${q.source.modificationNote}）` : ''}{q.source.url && <> <a href={q.source.url} target="_blank" rel="noopener noreferrer">原典PDF</a></>}。解説は本アプリ独自です。</>
+        <>出典：{q.source.examName ? `${q.source.examName} 問${q.source.questionNo ?? ''}（IPA）` : q.source.title}{q.source.modified && q.source.modificationNote ? `（${q.source.modificationNote}）` : ''}{q.source.url && <> <a href={q.source.url} target="_blank" rel="noopener noreferrer">原典PDF</a></>}。解説は本アプリ独自です。</>
       ) : (
         <>本アプリのオリジナル問題（シラバス Ver.{q.syllabusVersion} 準拠）</>
       )}

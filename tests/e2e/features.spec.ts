@@ -456,3 +456,12 @@ test.describe('辞典の分野とページ分割', () => {
     await expect(page.locator('ul.list > li')).toHaveCount(200);
   });
 });
+
+test.describe('IPA 公開問題の出典表示', () => {
+  test('解答後の解説に年度・科目・問番号と原典リンクが表示される', async ({ page }) => {
+    await open(page, '/q/IPA-R05-A-001');
+    await answerCurrent(page);
+    await expect(page.getByText(/出典：令和5年度 科目A 公開問題 問1（IPA）/)).toBeVisible();
+    await expect(page.getByRole('link', { name: '原典PDF' })).toBeVisible();
+  });
+});
