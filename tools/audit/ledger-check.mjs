@@ -11,7 +11,8 @@ const REQ = ['id', 'file', 'auditCommit', 'date', 'auditor', 'method', 'blindAns
 if (existsSync(DIR)) for (const f of readdirSync(DIR).filter((x) => x.endsWith('.jsonl')).sort()) {
   readFileSync(join(DIR, f), 'utf-8').split('\n').filter(Boolean).forEach((line, i) => {
     let r; try { r = JSON.parse(line); } catch { problems.push(`${f}:${i + 1} JSON 不正`); return; }
-    for (const k of REQ) if (r[k] === undefined || r[k] === '') problems.push(`${f}:${r.id ?? i + 1} ${k} なし`);
+    // blindAnswer が転記ずれなどで空の行は、独立した盲検やり直し（blindRedo）の記録で補える
+    for (const k of REQ) if ((r[k] === undefined || r[k] === '') && !(k === 'blindAnswer' && r.blindRedo)) problems.push(`${f}:${r.id ?? i + 1} ${k} なし`);
     rows.set(r.id, { ...r, ledger: f });
   });
 }
