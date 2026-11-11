@@ -2,7 +2,7 @@
 
 ## 範囲と方法
 
-- 対象：`content/glossary/*.yaml` の全 2,712 語。台帳 `docs/audit/glossary/G01〜G07.jsonl`（2,712 行、台帳なし 0）。バッチ G01〜G07 は `docs/audit/glossary-batches.json`。集計は `node tools/audit/glossary-ledger-check.mjs`。
+- 対象：`content/glossary/*.yaml` の全 2,712 語（監査後に、参考書の監査で見つかったシラバス用語例の欠落のポアソン分布・指数分布を追加し、現在 2,714 語。追加分は定義の数式を検算済みで、台帳は未作成）。台帳 `docs/audit/glossary/G01〜G07.jsonl`（2,712 行、台帳なし 0）。バッチ G01〜G07 は `docs/audit/glossary-batches.json`。集計は `node tools/audit/glossary-ledger-check.mjs`。
 - 1 語ずつ全文を読み、定義の事実・読み・別名・関連用語・シラバス適合を確認した（辞典内の整合と問題からの参照を含む）。
 - 略語（fullName を持つ 419 語）は追加の外部照合パスを実施（`docs/audit/glossary-abbr/A1〜A3.jsonl`、325 語）。
 
