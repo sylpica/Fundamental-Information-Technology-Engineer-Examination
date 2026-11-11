@@ -67,7 +67,7 @@ terms:
       - { en: Control, ja: 管理 }
       - { en: Board, ja: 委員会 }
     simple: プロジェクトの計画を変えてよいかどうかを判断して決める会議体です。
-    definition: ベースラインに対する変更要求を審査し、承認・却下を決定する組織。
+    definition: ベースラインに対する変更要求を審査し、承認・却下を決定する組織。プロジェクトマネジメントでは Change Control Board（変更管理委員会）、構成管理の文脈では Configuration Control Board（構成管理委員会。NIST 用語集の展開）とも展開される。
     related: [ベースライン]
   - term: ベースライン
     reading: ベースライン
