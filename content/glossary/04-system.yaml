@@ -168,7 +168,7 @@ terms:
       - { en: Area, ja: 領域 }
       - { en: Network, ja: ネットワーク }
     simple: サーバと記憶装置だけをつなぐ専用の高速ネットワークです。
-    definition: サーバとストレージを Fibre Channel や iSCSI などの専用ネットワークで接続し、ブロック単位でアクセスさせる仕組み。
+    definition: サーバとストレージを Fibre Channel や iSCSI などの専用ネットワークで接続し、ブロック単位でアクセスさせる仕組み。SAN は Storage Area Network の意味で用いる（SNIA の辞典は他の展開として Server Area Network、System Area Network も挙げる）。
     related: [NAS]
   - term: フェールセーフ
     reading: フェールセーフ
