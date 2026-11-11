@@ -19,9 +19,11 @@ sections:
       - `if ... elseif ... else ... endif` で条件分岐
       - `while (条件) ... endwhile`、`do ... while (条件)` で繰返し
       - `and`、`or`、`not` は論理演算
-      - `mod` は剰余、`÷` は除算
+      - `mod` は剰余、`÷` は除算。問題文に「÷ は実数の除算で、整数型の変数に代入するときは小数点以下を切り捨てる」のような前提が書かれるので確認する。整数の商は `a ÷ b の商` と書く
+      - `//` と `/* */` は注釈（処理には影響しない）
+      - `未定義` は値が定まっていない状態を表す（連結リストの末尾の next など）
       - 配列の要素番号は、問題に特に記述がなければ1から始まる
-      - `{1, 2, 3}` は配列の初期化を表す
+      - `{1, 2, 3}` は配列の初期化を表す。`dataの要素数` は配列の要素数
 
       **試験でのポイント**：問題冒頭の注記（配列の添字の開始、未定義の値など）を必ず確認します。
   - title: トレースの技法
@@ -46,15 +48,21 @@ sections:
     body: |
       **2分探索**：
       ```
-      low ← 1, high ← n
-      while (low ≤ high)
-        mid ← (low + high) ÷ 2 の商
-        if (data[mid] = target) return mid
-        elseif (data[mid] < target) low ← mid + 1
-        else high ← mid − 1
-        endif
-      endwhile
-      return −1
+      ○整数型: search(整数型の配列: data, 整数型: target)
+        整数型: low ← 1
+        整数型: high ← dataの要素数
+        整数型: mid
+        while (low ≦ high)
+          mid ← (low ＋ high) ÷ 2 の商
+          if (data[mid] = target)
+            return mid
+          elseif (data[mid] ＜ target)
+            low ← mid ＋ 1
+          else
+            high ← mid － 1
+          endif
+        endwhile
+        return －1
       ```
 
       **整列**：バブルソート（隣同士の交換を繰り返し、1パスごとに最大値が末尾に確定する）、選択ソート、挿入ソート、クイックソートの交換手順がよく出ます。
