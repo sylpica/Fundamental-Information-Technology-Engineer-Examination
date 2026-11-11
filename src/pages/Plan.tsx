@@ -31,7 +31,6 @@ export default function Plan() {
   return (
     <div className="stack">
       <h1 tabIndex={-1}>学習プラン</h1>
-      <p className="small muted">すべて任意です。設定しなくても「今すぐ学習」からすぐに問題を解けます。</p>
       <form className="card" onSubmit={(e) => { e.preventDefault(); st.updateSettings({ plan: draft, onboarded: true }); navigate('/'); }}>
         <fieldset className="field" style={{ border: 0, padding: 0 }}>
           <legend className="label">これまでの学習経験</legend>
@@ -68,6 +67,7 @@ export default function Plan() {
           {p && <button type="button" className="btn danger sm" onClick={() => st.updateSettings({ plan: undefined })}>プランを削除</button>}
         </div>
       </form>
+      <p className="small muted">すべて任意です。設定しなくても「今すぐ学習」からすぐに問題を解けます。</p>
     </div>
   );
 }

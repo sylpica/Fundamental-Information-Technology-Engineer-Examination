@@ -10,12 +10,12 @@ export default function Reference({ id }: { id?: string }) {
     return (
       <div className="stack">
         <h1 tabIndex={-1}>コンパクト参考書</h1>
-        <p className="small muted">シラバス Ver.{content!.syllabus.version} の章立てに沿って、問題演習で必要な要点を短くまとめています。分からなかった問題の解説から、関連用語をたどって確認する使い方がおすすめです。</p>
         <ul className="list card" style={{ padding: '4px 14px' }}>
           {chapters.map((c) => (
             <li key={c.id}><Link className="item" to={`/reference/${c.id}`}><span className="grow"><strong>{c.title}</strong><br /><span className="small muted">{c.sections.map((s) => s.title).join('・')}</span></span></Link></li>
           ))}
         </ul>
+        <p className="small muted">シラバス Ver.{content!.syllabus.version} の章立てに沿って、問題演習で必要な要点を短くまとめています。分からなかった問題の解説から、関連用語をたどって確認する使い方がおすすめです。</p>
       </div>
     );
   }

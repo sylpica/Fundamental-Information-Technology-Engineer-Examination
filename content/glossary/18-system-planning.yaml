@@ -60,7 +60,7 @@ terms:
     japanese: 投資利益率
     words:
       - { en: Return, ja: 利益・見返り }
-      - { en: On, ja: に対する }
+      - { en: 'On', ja: に対する }
       - { en: Investment, ja: 投資 }
     aliases: [投資利益率, 投資対効果]
     simple: 投資した金額に対して、どれだけ利益が得られたかの割合です。

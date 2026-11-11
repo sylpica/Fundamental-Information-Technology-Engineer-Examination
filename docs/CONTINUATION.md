@@ -1,6 +1,14 @@
 # 作業の引き継ぎ
 
-最終更新：2026-10-29
+最終更新：2026-11-11
+
+## 完全品質監査・全件意味監査（2026-11-04〜11-11、**監査・修正・再監査は完了。公開は手前で停止中**）
+
+- 作業ブランチ：`claude/tender-bardeen-2ckjqr`（push 済み。最新コミットは `git log -1`）。デプロイ対象 `claude/fe-exam-learning-app-nuiom6` への PR 作成・マージ、および GitHub Actions・Pages の確認は**未実施**（ユーザー指示：/advisor が使えないため公開の手前で止める。/advisor はこの環境にツールとして存在しなかった）。再開するには、ユーザーから公開の許可を得てから PR を作成する。
+- 結果と未検証事項は `docs/QUALITY_REPORT.md` 末尾「完全品質監査・全件意味監査」、方法・証跡は `docs/audit/`（問題台帳 Q01〜Q24、用語台帳 G01〜G08、略語外部照合、参考書・講座台帳、findings、`GLOSSARY_SUMMARY.md`）。集計：`node tools/audit/ledger-check.mjs`、`node tools/audit/glossary-ledger-check.mjs`。
+- ユーザー確定事項：**H2 の応用・高難度比率は 54.1% で確定**（70% への追加・改修は行わない。`tools/check-release.ts` は 54.1% を下限とする）。公開はゲート維持。
+- 残る作業（任意・公開前後）：独立再監査が未実施の新規 2 語（ポアソン分布・指数分布）、二次情報のみの略語 188 語の一次資料照合、有償規格・システム監査基準の本文照合、実機（iOS Safari・Android Chrome）確認、性能の改善前後比較、公開後の公開 URL での動作確認（最新ビルド・manifest・オフライン再読み込み）。
+- 運用：同時実行の上限は 4 まで（5 時間枠・週次上限に達した）。盲検 JSON は ID と解答の対で作る。worktree のエージェントは `docs/generated` と `node_modules` をコミットしない。
 
 ## 再開メモ（2026-10-29）
 

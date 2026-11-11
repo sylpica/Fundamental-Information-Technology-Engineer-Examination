@@ -2,7 +2,7 @@ import { useApp, useStore } from '../app/context';
 import { Link } from '../app/router';
 import { pick, startSession } from '../app/session';
 import { isReviewDue, isWeak, REVIEW_INTERVAL_DAYS } from '../lib/selection';
-import { stripMarkup } from '../components/Explanation';
+import { leadSentence } from '../components/Explanation';
 import type { Question } from '../types';
 
 export default function Review() {
@@ -37,8 +37,8 @@ export default function Review() {
                 {g.list.slice(0, 100).map((q) => (
                   <li key={q.id}>
                     <Link className="item" to={`/q/${q.id}`}>
-                      <span className="grow"><span className="xsmall muted">{categoryName(q.category)}</span><br /><span className="small">{stripMarkup(q.questionText).slice(0, 80)}</span>
-                        {st.states.get(q.id)?.memo && <><br /><span className="xsmall">メモ：{st.states.get(q.id)!.memo!.slice(0, 60)}</span></>}</span>
+                      <span className="grow"><span className="xsmall muted">{categoryName(q.category)}</span><br /><span className="small">{leadSentence(q.questionText)}</span>
+                        {st.states.get(q.id)?.memo && <><br /><span className="xsmall">メモ：{st.states.get(q.id)!.memo!.split('\n')[0]}</span></>}</span>
                     </Link>
                   </li>
                 ))}

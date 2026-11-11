@@ -14,7 +14,7 @@
 
 - [ ] `npm run typecheck`、`npm test`（単体・教材データ）
 - [ ] `npx vite build && npm run test:e2e`（スマホ幅・PC幅、オフライン）
-- [ ] `npm audit` で脆弱性 0
+- [ ] `npm audit` で脆弱性 0（2026-11-11 時点：vite 更新後も 7 件＝low 3・moderate 4 が残る。すべて vite-plugin-pwa 配下のビルド時依存で配布物に含まれない。DECISIONS 2026-11-11）
 
 ## 公開環境（手動）
 

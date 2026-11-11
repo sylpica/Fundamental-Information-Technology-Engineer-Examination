@@ -118,7 +118,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .topbar {
   position: sticky; top: 0; z-index: 20;
   display: flex; align-items: center; gap: 12px;
-  padding: 10px 16px; padding-top: max(10px, env(safe-area-inset-top));
+  padding: 2px 8px 2px 16px; padding-top: max(2px, env(safe-area-inset-top));
   background: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
@@ -126,7 +126,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .brand { font-weight: 700; font-size: 0.98em; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 8px; }
 .brand img { width: 26px; height: 26px; }
 .topbar .spacer { flex: 1; }
-.main { flex: 1; width: 100%; max-width: calc(var(--content) + 32px); margin: 0 auto; padding: 20px 16px calc(var(--nav-h) + 32px + env(safe-area-inset-bottom)); }
+.main { flex: 1; width: 100%; max-width: calc(var(--content) + 32px); margin: 0 auto; padding: 14px 16px calc(var(--nav-h) + 32px + env(safe-area-inset-bottom)); }
 .main.wide { max-width: 1080px; }
 
 .bottom-nav {
@@ -318,6 +318,12 @@ textarea { min-height: 96px; resize: vertical; line-height: 1.6; }
 .code .ln.active { background: color-mix(in srgb, var(--primary) 18%, transparent); box-shadow: inset 3px 0 0 var(--primary); }
 .code .blank { display: inline-block; min-width: 3.2em; padding: 0 6px; margin: 0 2px; border: 1.5px solid var(--warn); border-radius: 4px; background: var(--blank); text-align: center; font-weight: 700; font-family: var(--font); }
 .code-block { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; overflow-x: auto; white-space: pre; }
+/* スマホ幅では、コードの文字と行番号をやや小さくして、横スクロールなしで収まる行を増やす（折り返さないのはインデントが意味を持つため） */
+@media (max-width: 480px) {
+  .code { font-size: 0.78em; }
+  .code .ln .no { width: 2.2em; padding-right: 0.6em; }
+  .code-block { font-size: 0.78em; }
+}
 .inline-code { font-family: var(--mono); font-size: 0.9em; background: var(--code-bg); padding: 1px 5px; border-radius: 4px; }
 
 .rich p { margin-bottom: 0.7em; }

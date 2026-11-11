@@ -68,7 +68,7 @@ export function Explanation({ q, order, chosen, showTools = true }: { q: Questio
           <summary>関連問題（理解度チェック・任意）</summary>
           <ul className="list">
             {related.map((r) => (
-              <li key={r.id}><Link className="item" to={`/q/${r.id}`}><span className="grow small">{stripMarkup(r.questionText).slice(0, 70)}…</span></Link></li>
+              <li key={r.id}><Link className="item" to={`/q/${r.id}`}><span className="grow small">{leadSentence(r.questionText)}</span></Link></li>
             ))}
           </ul>
         </details>
@@ -84,7 +84,7 @@ export function SourceLine({ q }: { q: Question }) {
   return (
     <p className="xsmall muted" style={{ marginTop: 14 }}>
       問題ID：{q.id}（v{q.contentVersion}）／{q.source.kind === 'ipa' ? (
-        <>出典：{q.source.title}{q.source.modified && q.source.modificationNote ? `（${q.source.modificationNote}）` : ''}{q.source.url && <> <a href={q.source.url} target="_blank" rel="noopener noreferrer">原典PDF</a></>}。解説は本アプリ独自です。</>
+        <>出典：{q.source.examName ? `${q.source.examName} 問${q.source.questionNo ?? ''}（IPA）` : q.source.title}{q.source.modified && q.source.modificationNote ? `（${q.source.modificationNote}）` : ''}{q.source.url && <> <a href={q.source.url} target="_blank" rel="noopener noreferrer">原典PDF</a></>}。解説は本アプリ独自です。</>
       ) : (
         <>本アプリのオリジナル問題（シラバス Ver.{q.syllabusVersion} 準拠）</>
       )}
@@ -110,4 +110,12 @@ function TermMini({ t }: { t: GlossaryTerm }) {
 
 export function stripMarkup(s: string): string {
   return s.replace(/\[\[([^\]|]+)(?:\|[^\]]+)?\]\]/g, '$1').replace(/\*\*|`/g, '').replace(/\n+/g, ' ');
+}
+
+/** 一覧用の要約：問題文の最初の一文（「。」まで、表やコードの前まで）を途中で切らずに返す */
+export function leadSentence(s: string): string {
+  const head = s.split(/\n\s*(?:\||```)/)[0];
+  const plain = stripMarkup(head).trim();
+  const m = plain.match(/^.*?[。？?](?=\s|$|[^」』）)])/);
+  return (m ? m[0] : plain).trim();
 }

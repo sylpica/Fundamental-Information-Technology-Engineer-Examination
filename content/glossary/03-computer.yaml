@@ -591,10 +591,10 @@ terms:
     related: [DRAM, ROM]
   - term: DIMM
     reading: でぃむ
-    fullName: Dual Inline Memory Module
+    fullName: Dual In-line Memory Module
     japanese: デュアルインラインメモリモジュール
     words:
-      - { en: Dual Inline, ja: 両面に端子が並んだ }
+      - { en: Dual In-line, ja: 両面に端子が並んだ }
       - { en: Memory Module, ja: メモリ基板 }
     simple: DRAMチップを基板に載せた、パソコンの主記憶に使うメモリモジュールです。
     definition: 複数の DRAM チップを小さな基板に実装したメモリモジュールの規格。基板の両面に独立した端子をもつ。

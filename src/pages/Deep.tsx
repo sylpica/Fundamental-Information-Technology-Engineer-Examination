@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react';
 import { useApp, useStore } from '../app/context';
 import { pick, startSession } from '../app/session';
 import { Link } from '../app/router';
-import { stripMarkup } from '../components/Explanation';
+import { leadSentence } from '../components/Explanation';
 
 export default function Deep() {
   const { content, categoryName } = useApp();
@@ -14,12 +14,12 @@ export default function Deep() {
     (kind === 'all' || (kind === 'calcA' && q.subject === 'A') || (kind === 'progB' && q.category === 'B-ALG') || (kind === 'secB' && q.category === 'B-SEC')) &&
     (!simOnly || q.simulation)), [content, kind, simOnly]);
   const [count, setCount] = useState(5);
-  const list = pool.slice(0, 200);
+  const [shown, setShown] = useState(LIST_PAGE);
+  const list = pool.slice(0, shown);
 
   return (
     <div className="stack">
       <h1 tabIndex={-1}>計算・プログラム読解</h1>
-      <p className="muted small">計算過程やプログラムの動きを追いながら、時間をかけて解く問題です。解説には段階的な解き方を示し、対応する問題では実行シミュレーターで変数や配列の変化を1ステップずつ確認できます。</p>
       <div className="card">
         <div className="segmented" role="group" aria-label="種類" style={{ marginBottom: 12 }}>
           <button aria-pressed={kind === 'all'} onClick={() => setKind('all')}>すべて</button>
@@ -45,14 +45,18 @@ export default function Deep() {
                 <Link className="item" to={`/q/${q.id}`}>
                   <span className="grow">
                     <span className="xsmall muted">{categoryName(q.category)} {q.simulation && <span className="tag primary">シミュレーター</span>} {s?.attempts ? (s.lastCorrect ? <span className="tag ok">正解済</span> : <span className="tag ng">要復習</span>) : null}</span><br />
-                    <span className="small">{stripMarkup(q.questionText).slice(0, 90)}</span>
+                    <span className="small">{leadSentence(q.questionText)}</span>
                   </span>
                 </Link>
               </li>
             );
           })}
         </ul>
+        {pool.length > shown && <button className="btn block" onClick={() => setShown((n) => n + LIST_PAGE)}>さらに表示（{shown} / {pool.length}問）</button>}
       </div>
+      <p className="muted small">計算過程やプログラムの動きを追いながら、時間をかけて解く問題です。解説には段階的な解き方を示し、対応する問題では実行シミュレーターで変数や配列の変化を1ステップずつ確認できます。</p>
     </div>
   );
 }
+
+const LIST_PAGE = 30;

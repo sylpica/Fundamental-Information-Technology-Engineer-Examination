@@ -5,7 +5,7 @@ import { Link, navigate } from '../app/router';
 import { QuestionCard } from '../components/QuestionCard';
 import { startSession, foundationsFor } from '../app/session';
 import { IArrowR } from '../components/Icons';
-import { stripMarkup } from '../components/Explanation';
+import { leadSentence } from '../components/Explanation';
 import type { Question } from '../types';
 
 export default function SessionPage() {
@@ -138,7 +138,7 @@ function Summary() {
           <h2>間違えた問題</h2>
           <ul className="list">
             {wrong.map((q) => (
-              <li key={q.id}><Link className="item" to={`/q/${q.id}`}><span className="grow"><span className="xsmall muted">{categoryName(q.category)}</span><br /><span className="small">{stripMarkup(q.questionText).slice(0, 80)}</span></span></Link></li>
+              <li key={q.id}><Link className="item" to={`/q/${q.id}`}><span className="grow"><span className="xsmall muted">{categoryName(q.category)}</span><br /><span className="small">{leadSentence(q.questionText)}</span></span></Link></li>
             ))}
           </ul>
         </div>

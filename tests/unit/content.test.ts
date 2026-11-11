@@ -41,6 +41,33 @@ describe.skipIf(!hasData)('教材データ', () => {
     }
   });
 
+  it('科目Aの分野は中分類番号の正規形（1〜23）で、主論点の中分類と一致する', () => {
+    const middles = new Set(Array.from({ length: 23 }, (_, i) => String(i + 1)));
+    const cats = new Set<string>();
+    for (const q of questions.filter((x) => x.subject === 'A')) {
+      expect(middles.has(q.category), `${q.id}: ${q.category}`).toBe(true);
+      expect(q.topicIds[0].split('-')[0], q.id).toBe(q.category);
+      cats.add(q.category);
+    }
+    expect(cats.size).toBe(23);
+    for (const q of questions.filter((x) => x.subject === 'B')) expect(['B-ALG', 'B-SEC'], q.id).toContain(q.category);
+  });
+
+  it('depth は quick か deep で、科目B のセキュリティ事例問題（長文）は deep', () => {
+    for (const q of questions) expect(['quick', 'deep'], `${q.id}: ${q.depth}`).toContain(q.depth);
+    for (const q of questions.filter((x) => x.subject === 'B' && x.depth === 'quick')) {
+      expect(q.questionText.length + (q.code ?? '').length, `${q.id} は短時間学習には長すぎる`).toBeLessThan(800);
+    }
+  });
+
+  it('IPA 公開問題は選択肢を並べ替えない（原典の記号と登録正答が一致する）', () => {
+    // 過去に正答位置の均等化で IPA 問題の選択肢が並べ替えられ、登録正答の記号が公式解答と食い違った
+    for (const q of questions.filter((x) => x.source.kind === 'ipa')) {
+      expect(q.noShuffle, `${q.id} は noShuffle が必要`).toBe(true);
+      expect(q.id, q.id).toMatch(/^IPA-R\d{2}-[AB]-\d{3}$/);
+    }
+  });
+
   it('すべての問題に出典とライセンス状態がある', () => {
     for (const q of questions) {
       expect(q.source?.kind, q.id).toBeTruthy();
@@ -55,6 +82,12 @@ describe.skipIf(!hasData)('教材データ', () => {
 
   it('関連用語はすべて辞典に存在する', () => {
     for (const q of questions) for (const t of q.relatedConcepts) expect(termIds.has(t), `${q.id}: ${t}`).toBe(true);
+  });
+
+  it('用語の分野はシラバスの中分類名のいずれか', () => {
+    const syllabus = read<{ majors: { middles: { name: string }[] }[] }>(manifest.files.find((f) => f.kind === 'syllabus')!.path);
+    const names = new Set(syllabus.majors.flatMap((M) => M.middles.map((m) => m.name)));
+    for (const t of glossary) expect(names.has(t.category), `${t.term}: ${t.category}`).toBe(true);
   });
 
   it('略語の用語には正式名称・日本語訳・単語ごとの意味がある', () => {

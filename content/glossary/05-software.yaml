@@ -286,12 +286,14 @@ terms:
     definition: CMOS 回路の動的消費電力はおおむね C×V²×f に比例する。電圧と周波数を負荷に応じて下げる DVFS、未使用回路へのクロックを止めるクロックゲーティング、電源を遮断するパワーゲーティングなどで削減する。
     related: [集積回路]
   - term: 強制アクセス制御
+    category: '11'
     reading: きょうせいあくせすせいぎょ
     aliases: [MAC（強制アクセス制御）]
     simple: 管理者が決めたルールで、利用者本人にも変更できないアクセス制限をかける方式です。
     definition: システム管理者が設定したセキュリティポリシーに基づき、情報とアクセス主体に付けたラベルを比較して、所有者であっても変更できない形でアクセスを制御する方式。任意アクセス制御と対比される。
     related: [セキュアOS, アクセス制御, 任意アクセス制御]
   - term: SELinux
+    category: '11'
     reading: えすいーりなっくす
     fullName: Security-Enhanced Linux
     japanese: セキュリティ強化Linux
@@ -561,12 +563,14 @@ terms:
     definition: OS のすべての資源に対する操作権限をもつ特権ユーザー。UNIX 系では root、Windows では Administrator が該当する。
     related: [アクセス権, 最小権限の原則]
   - term: 任意アクセス制御
+    category: '11'
     reading: にんいあくせすせいぎょ
     aliases: [DAC]
     simple: 情報の所有者が、誰にアクセスを許すかを自分で決める方式です。
     definition: 情報の所有者が自分の判断で他の利用者へのアクセス権を設定できるアクセス制御方式。一般的な OS のファイルのアクセス権が該当する。強制アクセス制御と対比される。
     related: [アクセス制御, 強制アクセス制御]
   - term: ロールベースアクセス制御
+    category: '11'
     reading: ろーるべーすあくせすせいぎょ
     fullName: Role-Based Access Control
     japanese: ロールに基づくアクセス制御
@@ -615,6 +619,7 @@ terms:
     definition: シェルが解釈するコマンドや制御構造を記述したスクリプト。定型作業の自動化に用いる。
     related: [シェル, スクリプト言語]
   - term: Web API
+    category: '12'
     reading: うぇぶえーぴーあい
     simple: HTTPなどを使って、Web経由でほかのサービスの機能を呼び出すためのAPIです。
     definition: HTTP/HTTPS を用いて、ネットワーク越しにサービスの機能やデータを呼び出す API。REST 形式で JSON などを返すものが多い。
@@ -729,6 +734,7 @@ terms:
     definition: 前回（フルまたは増分）のバックアップ以降に変更されたデータのみをコピーする方式。バックアップは速くて小さいが、復元にはフルと全増分が必要で時間がかかる。
     related: [バックアップ, フルバックアップ, 差分バックアップ]
   - term: "3-2-1ルール"
+    category: '4'
     reading: さんにいちるーる
     simple: データのコピーを3つ、2種類の媒体に、1つは遠隔地に保管するというバックアップの目安です。
     definition: バックアップを 3 つのコピーで、2 種類以上の異なる媒体に保存し、そのうち 1 つを別の場所（遠隔地やオフライン）に保管するという原則。
@@ -929,6 +935,7 @@ terms:
     definition: "1 つのチップに多数（数千〜数十万個程度）の素子を集積した大規模集積回路。"
     related: [集積回路, VLSI]
   - term: VLSI
+    category: '6'
     reading: ぶいえるえすあい
     fullName: Very Large Scale Integration
     japanese: 超大規模集積回路
@@ -960,6 +967,7 @@ terms:
     definition: 順方向に電流を流すと発光するダイオード。省電力で長寿命のため、表示灯、照明、ディスプレイのバックライトなどに使われる。
     related: [ダイオード, 集積回路]
   - term: DVFS
+    category: '6'
     reading: でぃーぶいえふえす
     fullName: Dynamic Voltage and Frequency Scaling
     japanese: 動的電圧・周波数制御
@@ -972,11 +980,13 @@ terms:
     definition: 負荷に応じてプロセッサの動作電圧とクロック周波数を動的に変更し、消費電力を抑える技術。負荷が低いときに電圧と周波数を下げる。
     related: [消費電力, クロックゲーティング, パワーゲーティング]
   - term: クロックゲーティング
+    category: '6'
     reading: くろっくげーてぃんぐ
     simple: 使っていない回路へのクロック信号を止めて、電力を節約する技術です。
     definition: 動作していない回路ブロックへのクロック供給を止め、スイッチングによる動的な消費電力を削減する技術。
     related: [消費電力, パワーゲーティング, DVFS]
   - term: パワーゲーティング
+    category: '6'
     reading: ぱわーげーてぃんぐ
     simple: 使っていない回路への電源そのものを遮断して、電力を節約する技術です。
     definition: 動作していない回路ブロックへの電源供給を遮断し、リーク電流による静的な消費電力も削減する技術。クロックゲーティングより削減効果が大きいが、復帰に時間がかかる。

@@ -79,12 +79,12 @@ export default function Home() {
 
       <h2 className="section-title">学習メニュー</h2>
       <ul className="list card" style={{ padding: '4px 14px' }}>
-        <MenuItem to="/quick-b" icon={<ICode />} title="科目B 短時間学習" sub="擬似言語・アルゴリズム・セキュリティを単語帳感覚で" />
-        <MenuItem to="/deep" icon={<ICode />} title="計算・プログラム読解" sub="計算過程や変数の変化をじっくり追う問題（シミュレーター付き）" />
-        <MenuItem to="/review" icon={<IReview />} title={`復習（${reviewCount}問）`} sub="間違えた問題・理解度が低い問題・復習時期の問題" />
-        <MenuItem to="/exam" icon={<IExam />} title="模擬試験" sub="科目A 60問90分／科目B 20問100分（短縮版・時間無制限もあり）" />
-        <MenuItem to="/lessons" icon={<ILesson />} title="初心者向けプログラミング講座" sub="変数から再帰・整列まで、確認問題つきで段階的に" />
-        <MenuItem to="/reference" icon={<IBook />} title="コンパクト参考書・用語辞典" sub="シラバスの章立てで要点だけを整理" />
+        <MenuItem to="/quick-b" icon={<ICode />} title="科目B 短時間学習" />
+        <MenuItem to="/deep" icon={<ICode />} title="計算・プログラム読解" />
+        <MenuItem to="/review" icon={<IReview />} title={`復習（${reviewCount}問）`} />
+        <MenuItem to="/exam" icon={<IExam />} title="模擬試験" />
+        <MenuItem to="/lessons" icon={<ILesson />} title="初心者向けプログラミング講座" />
+        <MenuItem to="/reference" icon={<IBook />} title="コンパクト参考書・用語辞典" />
       </ul>
 
       <p className="small muted row" style={{ gap: 6 }}>
@@ -96,12 +96,12 @@ export default function Home() {
   );
 }
 
-function MenuItem({ to, icon, title, sub }: { to: string; icon: React.ReactNode; title: string; sub: string }) {
+function MenuItem({ to, icon, title }: { to: string; icon: React.ReactNode; title: string }) {
   return (
     <li>
       <Link to={to} className="item">
         <span style={{ color: 'var(--primary)' }}>{icon}</span>
-        <span className="grow"><strong>{title}</strong><br /><span className="small muted">{sub}</span></span>
+        <span className="grow"><strong>{title}</strong></span>
         <IChevron className="chev" width={18} />
       </Link>
     </li>

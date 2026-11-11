@@ -15,6 +15,9 @@ export interface Source {
   title: string;
   url?: string;
   year?: number;
+  /** IPA 問題の試験名（例：令和5年度 科目A 公開問題）と問番号。出典表示に使う */
+  examName?: string;
+  questionNo?: number;
   terms: string;
   termsCheckedAt: string;
   modified: boolean;

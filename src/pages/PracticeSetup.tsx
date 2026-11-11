@@ -32,7 +32,7 @@ export function CategoryChips({ cats, selected, onChange }: { cats: string[]; se
 }
 
 export default function PracticeSetup() {
-  const { content } = useApp();
+  const { content, categoryName } = useApp();
   const st = useStore();
   const [subject, setSubject] = useState<'all' | 'A' | 'B'>('all');
   const [cats, setCats] = useState<string[]>([]);
@@ -72,11 +72,6 @@ export default function PracticeSetup() {
     <div className="stack">
       <h1 tabIndex={-1}>問題演習</h1>
       <div className="card">
-        <h2 style={{ marginTop: 0 }}>高難度特訓</h2>
-        <p className="small muted">応用・高難度の問題だけを出題します（出題範囲は通常と同じシラバスの範囲内です）。下の科目・分野・問題数の設定が使えます。本番形式の模擬試験には高難度の問題は含まれません。</p>
-        <button className="btn primary block" onClick={startHard} disabled={hardPool.length === 0}>高難度特訓を始める（対象 {hardPool.length}問）</button>
-      </div>
-      <div className="card">
         <div className="field">
           <span className="label">科目</span>
           <div className="segmented" role="group" aria-label="科目">
@@ -85,10 +80,10 @@ export default function PracticeSetup() {
             ))}
           </div>
         </div>
-        <div className="field">
-          <span className="label">分野</span>
+        <details className="field">
+          <summary>分野：{cats.length === 0 ? 'すべて' : cats.map(categoryName).join('、')}</summary>
           <CategoryChips cats={allCats} selected={cats} onChange={setCats} />
-        </div>
+        </details>
         <div className="field">
           <label htmlFor="mode">出題方法</label>
           <select id="mode" value={mode} onChange={(e) => setMode(e.target.value as SelectMode)}>
@@ -128,6 +123,11 @@ export default function PracticeSetup() {
         </details>
         <p className="small muted">対象：{pool.length}問</p>
         <button className="btn primary lg block" onClick={start} disabled={pool.length === 0}>開始する</button>
+      </div>
+      <div className="card">
+        <h2 style={{ marginTop: 0 }}>高難度特訓</h2>
+        <button className="btn block" onClick={startHard} disabled={hardPool.length === 0}>応用・高難度だけで始める（対象 {hardPool.length}問）</button>
+        <p className="xsmall muted" style={{ margin: '8px 0 0' }}>上の科目・分野・問題数の設定を使います。出題範囲は通常と同じシラバスの範囲内で、本番形式の模擬試験には高難度の問題は含まれません。</p>
       </div>
     </div>
   );

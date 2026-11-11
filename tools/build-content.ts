@@ -93,7 +93,7 @@ for (const M of syllabus.majors) for (const m of M.middles) for (const s of m.su
 
 // ===== 用語辞典 =====
 
-interface RawTerm extends Omit<GlossaryTerm, 'id' | 'related' | 'category'> { id?: string; related?: string[]; aliases?: string[] }
+interface RawTerm extends Omit<GlossaryTerm, 'id' | 'related' | 'category'> { id?: string; related?: string[]; aliases?: string[]; category?: string | number }
 const glossary: GlossaryTerm[] = [];
 const termIndex = new Map<string, string>(); // 正規化名 → id
 for (const file of walk(join(CONTENT, 'glossary')).filter((f) => f.endsWith('.yaml'))) {
@@ -112,7 +112,7 @@ for (const file of walk(join(CONTENT, 'glossary')).filter((f) => f.endsWith('.ya
     glossary.push({
       id, term: t.term, reading: t.reading, fullName: t.fullName, japanese: t.japanese, words: t.words,
       simple: t.simple, definition: t.definition, example: t.example, difference: t.difference,
-      related: t.related ?? [], category: doc.category, questionIds: [],
+      related: t.related ?? [], category: String(t.category ?? doc.category), questionIds: [],
     });
     (glossary[glossary.length - 1] as GlossaryTerm & { aliases?: string[] }).aliases = t.aliases;
   }
@@ -371,6 +371,13 @@ for (const file of files) {
     const topicIds = Array.isArray(raw.topic) ? raw.topic : [raw.topic];
     for (const t of topicIds) if (!topics.has(String(t))) err(where, `学習論点 ${t} がシラバスにありません`);
     const primary = topics.get(String(topicIds[0]));
+    // 科目Aの分野は中分類番号の正規形（'01' ではなく '1'）に揃える。表記が揺れると分野別演習・模試配分・分析で別分野として扱われる
+    // 科目Aの分野（category）は主論点（topic の先頭）の中分類番号から決める。ファイルの category と食い違う問題や
+    // '01' のようなゼロ埋め表記があると、分野別演習・模試の分野配分・分析・参考書の対象問題で別分野として扱われるため
+    const fileCategory = subject === 'A' && /^\d+$/.test(String(doc.category)) ? String(Number(doc.category)) : String(doc.category);
+    if (subject === 'A' && !middleNames.has(fileCategory)) err(where, `category ${doc.category} はシラバスの中分類番号ではありません`);
+    const category = subject === 'A' && primary ? primary.middle : fileCategory;
+    if (subject === 'B' && primary && primary.level !== 'b' ) err(where, `科目Bの問題の主論点 ${topicIds[0]} が科目Bの論点ではありません`);
     const choices = (raw.c ?? []).map((c) => String(c).trim());
     const type = raw.type ?? 'choice';
     if (choices.length < 2) err(where, '選択肢が2つ以上必要です');
@@ -399,6 +406,9 @@ for (const file of files) {
     if (shuffles && /(?:^|[^ァ-ヶー])[アイウエ](?:が正|は誤|と同じ|の説明)/.test(whyRefs)) err(where, '選択肢の解説で他の選択肢を記号で参照しています');
     if (type === 'input' && !(raw.accept?.length)) err(where, '入力式には accept（許容解答）が必要です');
     if (raw.code && /【[a-z]】/.test(raw.q + raw.code) === false && raw.verify?.cases) err(where, '空欄のないプログラムに cases 検証が指定されています');
+    // depth は quick（短時間で解ける）か deep（本番形式・じっくり）のどちらか。それ以外の値は、短時間学習・読解・模試のどの出題対象にも入らなくなる
+    const depth = raw.depth ?? doc.depth ?? (raw.code ? 'deep' : 'quick');
+    if (depth !== 'quick' && depth !== 'deep') err(where, `depth は quick か deep です（${depth}）`);
     const diff = (raw.diff ?? 2) as 1 | 2 | 3 | 4;
     if (![1, 2, 3, 4].includes(diff)) err(where, 'diff は 1〜4 です（1 基礎 / 2 標準 / 3 応用 / 4 高難度）');
     const batch = raw.batch ?? doc.batch;
@@ -424,8 +434,8 @@ for (const file of files) {
       id: raw.id,
       syllabusVersion: syllabus.version,
       subject,
-      depth: raw.depth ?? doc.depth ?? (raw.code ? 'deep' : 'quick'),
-      category: doc.category,
+      depth,
+      category,
       subcategory: primary ? primary.sub : '',
       topicIds: topicIds.map(String),
       questionType: type,
@@ -539,10 +549,42 @@ for (const q of questions) {
   delete (q as Question & { _reviewed?: boolean })._reviewed;
 }
 const published = questions.filter((q) => q.verificationStatus === 'verified');
+const byIdAll = new Map(published.map((q) => [q.id, q]));
 for (const q of questions) if (q.verificationStatus === 'checking') warn(q.id, '内容レビューが未記録のため公開対象外です');
 
 // 用語 → 問題 の逆引き
 for (const q of published) for (const t of q.relatedConcepts) termById.get(t)?.questionIds?.push(q.id);
+// 用語の分野をシラバスの中分類名に揃える。ファイルの category は '06' のような番号や「補遺」のような作業上の名前が
+// 混在していたため、辞典の分野フィルターに生の番号や重複した分野が表示されていた。
+// 中分類に対応づけられる名前はそのまま、複数分野を含むファイルの用語は、その用語を使う問題の分野（最多）から決める。
+{
+  const middleByName = new Map([...middleNames.entries()].map(([no, name]) => [name, no]));
+  const ALIAS: Record<string, string> = {
+    アルゴリズム: '2', 'データ構造・アルゴリズム': '2', '擬似言語・アルゴリズム': '2', 情報セキュリティ: '11', '情報セキュリティ（科目B）': '11',
+    コンピュータシステム: '4', システム構成: '4', ハードウェア: '6', マルチメディア: '8', 開発技術: '12', 開発管理: '13',
+    技術戦略: '20', 経営戦略: '19', ビジネスシステム: '21', 法務: '23', '法規・標準化': '23', 'ユーザーインタフェース・情報メディア': '7',
+  };
+  const fileMiddle = (label: string): string | undefined => {
+    const l = String(label).trim();
+    if (/^\d+$/.test(l) && middleNames.has(String(Number(l)))) return String(Number(l));
+    return middleByName.get(l) ?? ALIAS[l];
+  };
+  // 複数分野を含むファイルで、問題からもシラバスの用語例からも決まらない用語の既定値
+  const MIXED_DEFAULT: Record<string, string> = { 'ソフトウェア・ハードウェア': '5' };
+  // シラバスの用語例（items/children の terms）→ 中分類
+  const syllabusTermMiddle = new Map<string, string>();
+  for (const tp of topics.values()) for (const w of tp.terms ?? []) if (!syllabusTermMiddle.has(normalizeForCompare(w))) syllabusTermMiddle.set(normalizeForCompare(w), tp.middle);
+  const qMiddle = (q: Question) => (q.category === 'B-ALG' ? '2' : q.category === 'B-SEC' ? '11' : q.category);
+  for (const t of glossary) {
+    const counts = new Map<string, number>();
+    for (const id of t.questionIds ?? []) { const q = byIdAll.get(id); if (q) counts.set(qMiddle(q), (counts.get(qMiddle(q)) ?? 0) + 1); }
+    const fromQuestions = [...counts.entries()].sort((a, b) => b[1] - a[1] || Number(a[0]) - Number(b[0]))[0]?.[0];
+    const fromSyllabus = syllabusTermMiddle.get(normalizeForCompare(t.term));
+    const no = fileMiddle(t.category) ?? fromQuestions ?? fromSyllabus ?? MIXED_DEFAULT[String(t.category).trim()];
+    if (!no) { err(`glossary:${t.term}`, `分野「${t.category}」を中分類に対応づけられません（問題からの参照もありません）`); continue; }
+    t.category = middleNames.get(no)!;
+  }
+}
 // 関連問題（同じ末端論点の問題）を自動補完
 const byTopic = new Map<string, string[]>();
 for (const q of published) for (const t of q.topicIds) {
