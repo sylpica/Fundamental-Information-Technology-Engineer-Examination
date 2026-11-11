@@ -1,21 +1,14 @@
 # 作業の引き継ぎ
 
-最終更新：2026-11-10
+最終更新：2026-11-11
 
-## 完全品質監査・全件意味監査（2026-11-04 開始、進行中）
+## 完全品質監査・全件意味監査（2026-11-04〜11-11、**監査・修正・再監査は完了。公開は手前で停止中**）
 
-- 作業ブランチ：`claude/tender-bardeen-2ckjqr`（push 済み）。デプロイ対象 `claude/fe-exam-learning-app-nuiom6` へは、品質ゲート通過後に PR でマージする。GitHub 所有者は `sylpica`（公開 URL https://sylpica.github.io/Fundamental-Information-Technology-Engineer-Examination/）。
-- 修正済み（ef1a292）：科目Aの分野番号が H2 ファイルで `'01'`〜`'09'` とゼロ埋めされ、236 問が別分野扱い（模試の分野配分・参考書の対象問題・分野別分析から漏れる）になっていた不具合。教材ビルドで主論点の中分類番号から分野を決めるよう変更し、主論点の誤付与 3 件（A10-511/512、A19-523、IPA-R06-A-019）を修正。回帰テスト（分野番号の正規形、fills・sqlChoices と選択肢の対応、ID 一意）を追加。
-- 全件意味監査の方式：`docs/audit/AUDITOR_BRIEF.md`。バッチ分けは `docs/audit/batches.json`（Q01〜Q24、問題ファイル単位）。担当ごとに worktree で盲検（`tools/audit/blind.mjs`）→照合（`tools/audit/compare.mjs`）→全問精査→YAML 修正→台帳 `docs/audit/questions/<バッチ>.jsonl`・発見事項 `docs/audit/findings/<バッチ>.md`。集計は `node tools/audit/ledger-check.mjs`。
-- 進捗（2026-11-10 21:10 UTC）：**監査・統合済み Q01〜Q20・Q22（台帳 1,775/2,002 問）**。独立再監査済み RA1（Q01〜Q03）・RA2（Q05〜Q08）・RA3（Q04・Q09・Q10）・RA4（Q11〜Q13＋A04-515・A18-012）・RA5（Q14・Q15）。
-  - 中断中（5 時間枠の上限で停止。worktree 残存）：Q21（drill・セキュリティ H2）、Q23（IPA 科目A）、Q24（IPA 科目B、worktree なし・再起動待ち）、RA6（Q16・Q17 の修正分と、Q16 の盲検が無効だった 34 問の解き直し）。再開は担当エージェントへの SendMessage、または worktree の未コミット変更を確認して新担当を起動。
-  - 未実施：Q18〜Q22 の修正分の再監査（RA7 想定）、用語辞典の全件監査（`docs/audit/GLOSSARY_BRIEF.md`、`docs/audit/glossary-batches.json` の G01〜G07）、参考書・講座の監査、H2 応用・高難度比率の補充（現状 約 60%、基準 70%）、最終の全体検証・PR・公開確認。
-  - 同時実行は 4 まで。盲検 JSON は ID と解答の対で作る（位置割当は不可）。
-- 追加で修正済み：辞典の分野表記（49 種→中分類 23）、不正な depth: standard（40 問）と IPA 科目B セキュリティ長文の短時間扱い、科目B 模試のセキュリティ枠を本番形式に限定、UI ルール 4 点（上部バー 65→49px、説明文を下部へ、一覧の文字切れ解消、辞典・読解一覧の段階表示）、時間切れ・高難度特訓の E2E 追加。
-- 残る既知事項：verify.value が正答値の直書きの問題 71 問（担当バッチで式化中。統合後に残数を確認し、ビルド検査を追加する）。
-- 初期検証（2026-11-04、監査開始時 423f598）：教材ビルド エラー 0（公開 2,002・A 1,635・B 367、用語 2,712、網羅 624/624）、単体 80 件通過、tsc 成功、vite build 成功、`ENFORCE_H2=1 npm run check:release` 成功、E2E ローカル Chromium（mobile/desktop）132 件・Firefox/WebKit 67 件 通過、npm audit：moderate 9・low 3（全て開発・ビルド時依存。vite 6.4.4 の dev サーバ脆弱性、workbox-build 配下）。
-- 未着手：用語辞典全件監査、参考書・講座、法令・規格の一次照合、UI ルール 4 点の修正、Q11〜Q24。
-
+- 作業ブランチ：`claude/tender-bardeen-2ckjqr`（push 済み。最新コミットは `git log -1`）。デプロイ対象 `claude/fe-exam-learning-app-nuiom6` への PR 作成・マージ、および GitHub Actions・Pages の確認は**未実施**（ユーザー指示：/advisor が使えないため公開の手前で止める。/advisor はこの環境にツールとして存在しなかった）。再開するには、ユーザーから公開の許可を得てから PR を作成する。
+- 結果と未検証事項は `docs/QUALITY_REPORT.md` 末尾「完全品質監査・全件意味監査」、方法・証跡は `docs/audit/`（問題台帳 Q01〜Q24、用語台帳 G01〜G08、略語外部照合、参考書・講座台帳、findings、`GLOSSARY_SUMMARY.md`）。集計：`node tools/audit/ledger-check.mjs`、`node tools/audit/glossary-ledger-check.mjs`。
+- ユーザー確定事項：**H2 の応用・高難度比率は 54.1% で確定**（70% への追加・改修は行わない。`tools/check-release.ts` は 54.1% を下限とする）。公開はゲート維持。
+- 残る作業（任意・公開前後）：独立再監査が未実施の新規 2 語（ポアソン分布・指数分布）、二次情報のみの略語 188 語の一次資料照合、有償規格・システム監査基準の本文照合、実機（iOS Safari・Android Chrome）確認、性能の改善前後比較、公開後の公開 URL での動作確認（最新ビルド・manifest・オフライン再読み込み）。
+- 運用：同時実行の上限は 4 まで（5 時間枠・週次上限に達した）。盲検 JSON は ID と解答の対で作る。worktree のエージェントは `docs/generated` と `node_modules` をコミットしない。
 
 ## 再開メモ（2026-10-29）
 
